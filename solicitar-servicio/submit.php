@@ -13,8 +13,10 @@ if(isset($_POST['submit'])){
     echo "form submitted <br>";
 
     unset($_POST['submit']);
+    var_dump($_POST);
+    echo "<br>";
 
-    $fields = array('client_sender_name, local_tel');
+    $fields = array('service_date, client_sender_name, local_tel');
 
     $query = "INSERT INTO services (";
 

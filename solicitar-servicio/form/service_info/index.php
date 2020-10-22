@@ -20,7 +20,7 @@
     <div class="form-row">
 	<div class="col-md-6 form-group">
 	    <label for="">fecha del servicio</label>
-	    <input class="form-control" type="date">
+	    <input name="service_date" class="form-control" type="date">
 	</div>
 	<div class="col-md-6 form-group">
 	    <label for="">fecha de entrega</label>
