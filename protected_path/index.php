@@ -7,6 +7,8 @@ if(!user_logged()) {
     exit();
 }
 
+include(__DIR__.'/../includes/header.php');
+
 echo "super secret path";
 
 ?>

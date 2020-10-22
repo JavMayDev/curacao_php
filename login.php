@@ -1,6 +1,7 @@
 <?php
 
 include('db.php');
+include('session.php');
 unset($_SESSION['message']);
 
 /* get credentials */
@@ -21,6 +22,7 @@ $row = mysqli_fetch_assoc($result);
 
 if($row['password'] == $password){
     $_SESSION['user_id'] = $row['id'];
+    $_SESSION['logged'] = true;
     unset($_SESSION['message']);
 
     header('Location: protected_path');

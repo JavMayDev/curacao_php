@@ -1,8 +1,5 @@
 <?php
 $dbconn = mysqli_connect('localhost', 'root', '', 'curacao_db');
-if(!$dbconn)
+if (!$dbconn) {
     echo "database connection error";
-
-session_start();
-
-?>
+}
