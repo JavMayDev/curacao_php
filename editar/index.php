@@ -1,8 +1,8 @@
 <?php
 
-/* redirect if no logged */
+/* redirect if no permission */
 include('../includes/session_check.php');
-if(!user_logged()) {
+if(!user_logged(2)) {
     header('Location: ../index.php');
     exit();
 }
@@ -14,14 +14,42 @@ include(__DIR__.'/../includes/header.php');
 include(__DIR__.'/../db.php');
 
 $row = mysqli_fetch_assoc(mysqli_query($dbconn, "SELECT * FROM services WHERE id=${_GET['id']}"));
+$json_encoded_row = json_encode($row );
 
-var_dump($row);
-echo "<br>";
-echo "<br>";
-var_dump(json_encode($row));
-echo "<br>";
-echo "<br>";
-var_dump(file_get_contents(__DIR__.'/test.json'));
-
+/* json pretty print for debug */
+printf("<pre>%s</pre>", json_encode($row, JSON_PRETTY_PRINT));
 
 ?>
+
+
+<script>
+var row_data = JSON.parse('<?= $json_encoded_row?>');
+console.log('row data: ',  row_data )
+
+</script>
+
+<script src="./filter.js"> </script>
+
+<form action="./update.php?id=<?= $_GET['id']?>" method="POST" onsubmit="return filter()">
+
+    <?php include(__DIR__.'/../form/service_info/index.php') ?>
+    <?php include(__DIR__.'/../form/client_info/index.php') ?>
+    <?php include(__DIR__.'/../form/product_info/index.php') ?>
+    <?php include(__DIR__.'/../form/tech_info/index.php') ?>
+
+    <!-- UPDATE & CANCEL -->
+    <div>
+	<div class="form-row">
+	    <div class="form-group col-md-4">
+		<input class="form-control btn btn-secondary" type="submit" value="Cancelar">
+	    </div>
+	    <div class="form-group col-md-4">
+		<input class="form-control btn btn-success" name="submit" type="submit" value="Actualizar">
+	    </div>
+	</div>
+    </div>
+</form>
+
+<script src="./fill.js"></script>
+
+<?php include(__DIR__.'/../includes/footer.php'); ?>

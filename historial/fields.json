@@ -8,11 +8,43 @@
 	"name": "Fecha de servicio"
     },
     {
-	"key": "client_sender_name",
-	"name": "Cliente que envía"
+	"key": "delivery_date",
+	"name": "Fecha de entrega"
     },
     {
-	"key": "local_tel",
-	"name": "Teléfono local"
+	"key": "order_num",
+	"name": "Número de orden"
+    },
+    {
+	"key": "client_account_num",
+	"name": "No. de cuenta del cliente"
+    },
+    {
+	"key": "article",
+	"name": "Prodcuto"
+    },
+    {
+	"key": "brand",
+	"name": "Marca"
+    },
+    {
+	"key": "model",
+	"name": "Modelo"
+    },
+    {
+	"key": "problem_description",
+	"name": "Descripcion del problema"
+    },
+    {
+	"key": "supervisor",
+	"name": "Responsable"
+    },
+    {
+	"key": "notes",
+	"name": "Notas"
+    },
+    {
+	"key": "active",
+	"name": "Activo"
     }
 ]

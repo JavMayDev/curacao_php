@@ -1,8 +1,8 @@
 <?php
 
-/* redirect if no logged */
+/* redirect if no permission */
 include('../includes/session_check.php');
-if(!user_logged()) {
+if(!user_logged(1)) {
     header('Location: ../index.php');
     exit();
 }
@@ -12,7 +12,6 @@ include(__DIR__.'/../includes/header.php');
 
 ?>
 
-<script src="./form/client_info/validate.js"></script>
 <script>
 function validateForm(){
     /* event.preventDefault(); */
@@ -20,13 +19,13 @@ function validateForm(){
     return true;
 }
 </script>
-<form action="<?='./submit.php'?>" method="POST" onsubmit="return validateForm()" >
+<form action="./submit.php" method="POST" onsubmit="return validateForm()" >
 
 <?php 
     /* include each part of the form */
-    include(__DIR__.'/form/service_info/index.php');
-    include(__DIR__.'/form/client_info/index.php');
-    include(__DIR__.'/form/product_info/index.php');
+    include(__DIR__.'/../form/service_info/index.php');
+    include(__DIR__.'/../form/client_info/index.php');
+    include(__DIR__.'/../form/product_info/index.php');
 ?>
 
     <!-- GUARDAR Y LIMPIAR -->
@@ -41,5 +40,7 @@ function validateForm(){
 	</div>
     </div>
 </form>
+
+<script src="./fill.js"></script>
 
 <?php include(__DIR__.'/../includes/footer.php') ?>

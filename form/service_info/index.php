@@ -14,7 +14,7 @@
 	</div>
 	<div class="col-md-6 form-group">
 	    <label for="servicio">No. de cuenta del cliente</label>
-	    <input class="form-control" type="text" >
+	    <input name="client_account_num"  class="form-control" type="text" >
 	</div>
     </div>
     <div class="form-row">
@@ -24,17 +24,17 @@
 	</div>
 	<div class="col-md-6 form-group">
 	    <label for="">fecha de entrega</label>
-	    <input class="form-control" type="date">
+	    <input name="delivery_date" class="form-control" type="date">
 	</div>
     </div>
     <div class="form-row">
 	<div class="col-md-6 form-group">
 	    <label for="">No. de order</label>
-	    <input class="form-control" type="">
+	    <input name="order_num" class="form-control" type="">
 	</div>
 	<div class="col-md-6 form-group">
 	    <label for="">Tienda donde se realizó la venta</label>
-	    <select id="" class="form-control" name="">
+	    <select name="sale_store" id="" class="form-control" name="">
 		<option value="">Los Angeles</option>
 		<option value="">Panorama</option>
 		<option value="">South Gate</option>
@@ -43,4 +43,3 @@
     </div>
 </div>
 
-<script src="./form/service_info/fill.js"></script>

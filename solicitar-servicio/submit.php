@@ -1,8 +1,8 @@
 <?php
 
-/* redirect if no logged */
+/* redirect if no permission */
 include('../includes/session_check.php');
-if(!user_logged()) {
+if(!user_logged(1)) {
     header('Location: ../index.php');
     exit();
 }
@@ -10,24 +10,30 @@ if(!user_logged()) {
 include('../db.php');
 
 if(isset($_POST['submit'])){
-    echo "form submitted <br>";
 
     unset($_POST['submit']);
     if($_POST['service_date'] == '') unset($_POST['service_date']);
 
-    var_dump($_POST);
-    echo "<br>";
 
-    $fields = array('service_type', 'client_sender_name', 'local_tel');
+    $post_keys = array_keys($_POST);
+
+    /* clean empty fields */
+    foreach($post_keys as $field){
+	if($_POST[$field] == '') 
+	    unset ($_POST[$field]);
+    }
 
     $query = "INSERT INTO services (";
 
-    for($i = 0; $i < count($fields); $i++){
-	$query .= "$fields[$i]";
+    $i = 0;
+    $post_keys = array_keys($_POST);
+    foreach($post_keys as $field){
+	$query .= "$field";
 
 	/* put ',' in each field except the last one */
-	if($i < count($fields) - 1)
-	    $query.=',';
+	if($i < count($post_keys) - 1)
+	    $query.=', ';
+	$i++;
     }
 
     $query .= ") VALUES(";
@@ -36,18 +42,17 @@ if(isset($_POST['submit'])){
     foreach($_POST as $value){
 	$query .= "'$value'";
 	if($i < count($_POST) -1)
-	    $query .= ',';
+	    $query .= ', ';
 	$i++;
     }
 
     $query .= ");";
 
-    echo $query;
-    $res = mysqli_query($dbconn,$query);
 
-    echo '<br>';
-    var_dump($res);
+    /* perform the query */
+	$res = mysqli_query($dbconn,$query);
 
+    header("Location: ../historial");
 }
 
 ?>

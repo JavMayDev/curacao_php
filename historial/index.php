@@ -1,8 +1,8 @@
 <?php
 
-/* redirect if no logged */
+/* redirect if no permission */
 include('../includes/session_check.php');
-if(!user_logged()) {
+if(!user_logged(1)) {
     header('Location: ../index.php');
     exit();
 }
@@ -41,3 +41,5 @@ $result = mysqli_query($dbconn, "SELECT * FROM services");
 
 
 </table>
+
+<?php include(__DIR__.'/../includes/footer.php'); ?>
