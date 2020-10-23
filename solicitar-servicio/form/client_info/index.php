@@ -5,13 +5,13 @@
 <div>
     <h2>Información del cliente y beneficiario</h2>
     <div class="form-row">
-	<div class="form-group col-md-6">
+	<div class="form-group col-md-6" id="client_sender_name_input_group">
 	    <label for="">nombre del cliente que envía</label>
-	    <input name="client_sender_name" class="form-control" type="text">
+	    <input id="client_sender_name" name="client_sender_name" class="form-control" type="text">
 	</div>
-	<div class="form-group col-md-6">
+	<div class="form-group col-md-6" >
 	    <label for="">nombre del cliente que recibió</label>
-	    <input class="form-control" type="text">
+	    <input class="form-control" type="text" id="validationCustom02">
 	</div>
     </div>
 

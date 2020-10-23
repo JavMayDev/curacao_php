@@ -16,10 +16,11 @@ include(__DIR__.'/../includes/header.php');
 <script>
 function validateForm(){
     /* event.preventDefault(); */
-    return validateClientInfo();
+    /* return validateClientInfo(); */
+    return true;
 }
 </script>
-<form action="<?='./submit.php'?>" method="POST" onsubmit="return validateForm()">
+<form action="<?='./submit.php'?>" method="POST" onsubmit="return validateForm()" >
 
 <?php 
     /* include each part of the form */

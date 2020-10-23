@@ -25,7 +25,7 @@ if($row['password'] == $password){
     $_SESSION['logged'] = true;
     unset($_SESSION['message']);
 
-    header('Location: protected_path');
+    header('Location: historial');
 } else {
     $_SESSION['message'] = 'Wrong password';
     header('Location: index.php');

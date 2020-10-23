@@ -1,0 +1,18 @@
+[
+    {
+	"key": "service_type",
+	"name": "Servicio"
+    },
+    {
+	"key": "service_date",
+	"name": "Fecha de servicio"
+    },
+    {
+	"key": "client_sender_name",
+	"name": "Cliente que envía"
+    },
+    {
+	"key": "local_tel",
+	"name": "Teléfono local"
+    }
+]

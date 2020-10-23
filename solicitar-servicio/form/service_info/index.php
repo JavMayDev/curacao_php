@@ -6,8 +6,8 @@
     <div class="form-row">
 	<div class=" col-md-6 form-group">
 	    <label for="servicio">servicio</label>
-	    <select class="form-control" id="service" name="">
-		<option value="">servicio</option>
+	    <select name="service_type" class="form-control" id="service" name="">
+		<option value="service">servicio</option>
 		<option value="">reclamo</option>
 		<option value="">anulacion total</option>
 	    </select>
@@ -43,3 +43,4 @@
     </div>
 </div>
 
+<script src="./form/service_info/fill.js"></script>

@@ -28,7 +28,7 @@ define('BASE_URL', 'http://localhost/curacao_php/');
 			 <a class="nav-link" href="<?= BASE_URL.'solicitar-servicio'?>">Solicitar servicio</a>
 		     </li>
 		     <li class="nav-item">
-			 <a class="nav-link" href="#">Pricing</a>
+			 <a class="nav-link" href="<?= BASE_URL.'historial'?>">Historial</a>
 		     </li>
 		     <li class="nav-item">
 			 <a class="nav-link" href="<?= BASE_URL.'logout.php'?>">Cerrar sesión</a>
