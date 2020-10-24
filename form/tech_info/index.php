@@ -8,7 +8,7 @@
 	</div>
 	<div class="form-group col-md-2">
 	    <label for="">Activo</label>
-	    <input class="form-control" type="checkbox">
+	    <input name="active" class="form-control" type="checkbox">
 	</div>
     </div>
 </div>

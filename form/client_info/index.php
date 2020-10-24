@@ -13,19 +13,21 @@
 	</div>
     </div>
 
+    <!-- PLACE -->
     <h5>Dirección (Dónde esta actualmente el producto)</h5>
     <div class="form-row">
 	<div class="form-group col-md-4">
 	    <label for="">País</label>
-	    <select name="country" id="" class="form-control" name=""></select>
+	    <select onblur="onCountryBlur()" name="country" class="form-control">
+	    </select>
 	</div>
 	<div class="form-group col-md-4">
 	    <label for="">Estado</label>
-	    <select name="state" id="" class="form-control" name=""></select>
+	    <select name="state" class="form-control"></select>
 	</div>
 	<div class="form-group col-md-4">
 	    <label for="">Ciudad o Municipio</label>
-	    <select name="city" id="" class="form-control" name=""></select>
+	    <input class="form-control" name="city" type="text">
 	</div>
     </div>
     <div class="form-row">
@@ -64,4 +66,4 @@
     </div>
 </div>
 
-
+<script src="<?= BASE_URL.'/form/client_info/stateSelect.js'?>"></script>

@@ -21,9 +21,12 @@ $result = mysqli_query($dbconn, "SELECT * FROM services");
 
 ?>
 
+</div>
+
 <table class='table table-bordered'> 
     <thead>
 	<tr>
+
 	    <?php foreach($fields as $field): ?>
 	    <td><?= $field['name']?></td>
 	    <? endforeach; ?>
@@ -31,10 +34,27 @@ $result = mysqli_query($dbconn, "SELECT * FROM services");
     </thead>
     <tbody>
 	<?php while($row = mysqli_fetch_array($result)): ?>
-	<tr onclick="window.location='<?= BASE_URL."editar?id=".$row["id"]?>'">
-	    <?php foreach($fields as $field): ?>
+	<tr
+	    <?php
+		if($_SESSION['access_level'] >= 2){
+		    $url = BASE_URL."editar/index.php?id=${row['id']}";
+		    $window = "window.location='$url'";
+		    echo "onclick=".'"'.$window.'"';
+		}
+	    ?>
+	>
+	    <?php
+	    foreach($fields as $field):
+		if($field['key'] == 'active'):
+	    ?>
+	    <td><div style="background-color:
+		<?php 
+		    if($row[$field['key']] == 1){ echo 'green'; }
+		    else { echo 'red'; }
+		?>;">O</div></td>
+	    <?php else: ?>
 	    <td><?= $row[$field['key']]?></td>
-	    <?php endforeach; ?>
+	    <?php endif; endforeach; ?>
 	</tr>
 	<?php endwhile; ?>
     </tbody>
@@ -42,4 +62,6 @@ $result = mysqli_query($dbconn, "SELECT * FROM services");
 
 </table>
 
-<?php include(__DIR__.'/../includes/footer.php'); ?>
+<div>
+
+    <?php include(__DIR__.'/../includes/footer.php'); ?>

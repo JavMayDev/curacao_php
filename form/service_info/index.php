@@ -8,8 +8,9 @@
 	    <label for="servicio">servicio</label>
 	    <select name="service_type" class="form-control" id="service" name="">
 		<option value="service">servicio</option>
-		<option value="">reclamo</option>
-		<option value="">anulacion total</option>
+		<option value="reclamo">reclamo</option>
+		<option value="anulacion parcial">anulacion parcial</option>
+		<option value="anulacion total">anulacion total</option>
 	    </select>
 	</div>
 	<div class="col-md-6 form-group">
@@ -35,9 +36,17 @@
 	<div class="col-md-6 form-group">
 	    <label for="">Tienda donde se realizó la venta</label>
 	    <select name="sale_store" id="" class="form-control" name="">
-		<option value="">Los Angeles</option>
-		<option value="">Panorama</option>
-		<option value="">South Gate</option>
+		<option value="Los angeles">Los angeles</option>
+		<option value="Panorama">Panorama</option>
+		<option value="South Gate">South Gate</option>
+		<option value="Huntington Park">Huntington Park</option>
+		<option value="San Bernardino">San Bernardino</option>
+		<option value="Santa Ana">Santa Ana</option>
+		<option value="Chino">Chino</option>
+		<option value="Phoenix">Phoenix</option>
+		<option value="Anaheim">Anaheim</option>
+		<option value="Lynwood">Lynwood</option>
+		<option value="Las vegas">Las vegas</option>
 	    </select>
 	</div>
     </div>
