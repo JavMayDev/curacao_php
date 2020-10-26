@@ -50,7 +50,7 @@ function checkServiceAvailability() {
                     setErrorFeedback(
                         coverageInput,
                         true,
-                        'su garantia no ya ha expirado'
+                        'su garantia ya ha expirado'
                     );
                 else setErrorFeedback(coverageInput, false);
             }
