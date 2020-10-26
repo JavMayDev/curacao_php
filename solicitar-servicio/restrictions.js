@@ -26,8 +26,10 @@ function validateForm() {
     var dayDiff = (deliveryDate - serviceDate) / (1000 * 60 * 60 * 24);
     if (
         dayDiff >= 30 &&
-	// and if there aren't warngins already
-        !deliveryDateElement.parentElement.getElementsByClassName('text-danger')[0]
+        // and if there aren't warngins already
+        typeof deliveryDateElement.parentElement.getElementsByClassName(
+            'text-danger'
+        )[0] === 'undefined'
     ) {
         deliveryDateElement.classList.add('is-invalid');
         var errorFeedback = document.createElement('div');
@@ -38,8 +40,11 @@ function validateForm() {
             )
         );
         deliveryDateElement.parentElement.appendChild(errorFeedback);
-    }
-    else if (deliveryDate.parentElement.getElementsByClassName('text-danger')[0]) {
+    } else if (
+        typeof deliveryDateElement.parentElement.getElementsByClassName(
+            'text-danger'
+        )[0] !== 'undefined'
+    ) {
         deliveryDateElement.classList.remove('is-invalid');
         deliveryDateElement.parentElement.removeChild(
             document.getElementsByClassName('text-danger')
