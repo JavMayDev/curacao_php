@@ -1,4 +1,7 @@
 <?php
+/* to avoid header redirect fails */
+ob_start();
+
 include_once('db.php');
 include('session.php');
 include('includes/header.php'); 
@@ -50,4 +53,5 @@ else:
 endif;
 
 include('includes/footer.php'); 
+ob_end_flush();
 ?>

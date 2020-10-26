@@ -1,4 +1,6 @@
 <?php
+/* to avoid header redirect fails */
+ob_start();
 
 include('../session.php');
 
@@ -11,3 +13,4 @@ function user_logged($min_access_level) {
 	else return false;
     }
 }
+ob_end_flush();

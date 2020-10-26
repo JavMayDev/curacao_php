@@ -1,4 +1,6 @@
 <?php
+/* to avoid header redirect fails */
+ob_start();
 
 /* redirect if no permission */
 include('../includes/session_check.php');
@@ -59,4 +61,6 @@ var row_data = JSON.parse('<?= $json_encoded_row?>');
 
 <script src="./fill.js"></script>
 
-<?php include(__DIR__.'/../includes/footer.php'); ?>
+<?php include(__DIR__.'/../includes/footer.php');
+ob_end_flush();
+?>

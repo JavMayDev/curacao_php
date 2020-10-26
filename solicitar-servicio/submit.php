@@ -1,4 +1,6 @@
 <?php
+/* to avoid header redirect fails */
+ob_start();
 
 /* redirect if no permission */
 include('../includes/session_check.php');
@@ -62,7 +64,9 @@ if(isset($_POST['submit'])){
 	echo "No se pudo guardar el servicio";
     }
 
-    header("Location: ../historial");
+    header("Location: ../buscar");
 }
 
+/* to avoid header redirect fails */
+ob_end_flush();
 ?>

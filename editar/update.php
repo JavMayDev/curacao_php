@@ -1,4 +1,6 @@
 <?php
+/* to avoid header redirect fails */
+ob_start();
 
 /* redirect if no permission */
 include('../includes/session_check.php');
@@ -53,4 +55,6 @@ if(isset($_POST['submit'])){
 
     header('Location: ../historial');
 }
+
+ob_end_flush();
 ?>

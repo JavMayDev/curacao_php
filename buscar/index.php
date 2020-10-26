@@ -1,4 +1,6 @@
 <?php
+/* to avoid header redirect fails */
+ob_start();
 
 /* redirect if no permission */
 include('../includes/session_check.php');
@@ -28,7 +30,9 @@ if(isset($_POST['filter_submit']) && isset($_POST['service_code'])) {
 } 
 
 
-include(__DIR__.'/../includes/footer.php')
+include(__DIR__.'/../includes/footer.php');
+
+ob_end_flush();
 ?>
 
 

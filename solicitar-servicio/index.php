@@ -1,4 +1,6 @@
 <?php
+/* to avoid header redirect fails */
+ob_start();
 
 /* redirect if no permission */
 include('../includes/session_check.php');
@@ -43,4 +45,10 @@ include(__DIR__.'/../includes/header.php');
 
 <script src="./fill.js"></script>
 
-<?php include(__DIR__.'/../includes/footer.php') ?>
+<?php
+include(__DIR__.'/../includes/footer.php');
+
+/* to avoid header redirect fails */
+ob_end_flush();
+
+?>
