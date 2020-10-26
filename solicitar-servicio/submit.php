@@ -50,7 +50,17 @@ if(isset($_POST['submit'])){
 
 
     /* perform the query */
-	$res = mysqli_query($dbconn,$query);
+    $res = mysqli_query($dbconn,$query);
+
+
+    error_reporting(-1);
+    ini_set('display_errors', 'On');
+    set_error_handler("var_dump");
+
+    if($res){
+    } else {
+	echo "No se pudo guardar el servicio";
+    }
 
     header("Location: ../historial");
 }

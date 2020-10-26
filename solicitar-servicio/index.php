@@ -12,12 +12,12 @@ include(__DIR__.'/../includes/header.php');
 
 ?>
 
-<script>
-function validateForm(){
-    /* event.preventDefault(); */
-    /* return validateClientInfo(); */
-    return true;
-}
+
+<!-- if user's access_level 1, include a script for restrictions -->
+<?php if($_SESSION['access_level'] <= 1): ?>
+<script src="./restrictions.js"></script>
+<?php endif; ?>
+
 </script>
 <form action="./submit.php" method="POST" onsubmit="return validateForm()" >
 
@@ -42,11 +42,5 @@ function validateForm(){
 </form>
 
 <script src="./fill.js"></script>
-
-
-<!-- if user's access_level 1, include a script for restrictions -->
-<?php if($_SESSION['access_level'] <= 1): ?>
-<script src="./restrictions.js"></script>
-<?php endif; ?>
 
 <?php include(__DIR__.'/../includes/footer.php') ?>

@@ -10,6 +10,10 @@ define('BASE_URL', 'http://localhost/curacao_php/');
 	<!-- <link rel="stylesheet" href="static/bootstrap/css/bootstrap.min.css"> -->
 	<meta content='maximum-scale=1.0, initial-scale=1.0, width=device-width' name='viewport'>
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+
+	<!-- JQUERY -->
+	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+
     </head>
 
     <body>
@@ -30,6 +34,11 @@ define('BASE_URL', 'http://localhost/curacao_php/');
 		     <li class="nav-item">
 			 <a class="nav-link" href="<?= BASE_URL.'historial'?>">Historial</a>
 		     </li>
+		    <?php if(isset($_SESSION['access_level']) && $_SESSION['access_level'] >= 3): ?>
+		     <li class="nav-item">
+			 <a class="nav-link" href="<?= BASE_URL.'signup/index.php'?>">Registrar usuario</a>
+		     </li>
+		     <?php endif; ?>
 		     <li class="nav-item">
 			 <a class="nav-link" href="<?= BASE_URL.'logout.php'?>">Cerrar sesión</a>
 		     </li>

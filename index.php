@@ -22,13 +22,21 @@ include('includes/header.php'); ?>
 	    </div>
 	    <?php endif ?>
 	    <form action="login.php" method="POST">
-		<input class="form-control" type="email" name="email" placeholder="email">
-		<input class="form-control" type="password" name="password" placeholder="password">
-		<input class="form-control btn btn-success" type="submit" value="Login">
+		<div class="form-group">
+		    <label for="">Email</label>
+		    <input class="form-control" type="email" name="email" placeholder="email">
+		</div>
+		<div class="form-group">
+		    <label for="">Contraseña</label>
+		    <input class="form-control" type="password" name="password" placeholder="password">
+		</div>
+		<div class="form-group">
+		    <input class="form-control btn btn-primary" type="submit" value="Login">
+		</div>
 	    </form>
 	    </div>
 
 	 </div>
      </div>
  </div>
-<?php include('includes/footer.php'); ?>
+ <?php include('includes/footer.php'); ?>

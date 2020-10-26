@@ -1,4 +1,4 @@
-// this script filtes the form inputs/fields that has being changed by removing
+// this script gets the form inputs/fields that has being changed by removing
 // the "name" attribute in each element that keeps as the same
 
 function filter() {

@@ -1,0 +1,28 @@
+td {
+    min-width: 150px;
+}
+.dot {
+    height: 20px;
+    width: 20px;
+    margin: auto;
+    display: inline-block;
+    border-radius: 50%;
+}
+
+.scrollable {
+    max-width: 100%;
+    max-height: 85vh;
+
+    overflow: scroll;
+    margin: 1em;
+}
+
+thead {
+    background-color: #ededed;
+}
+
+.table_row:hover {
+    background-color: #fff;
+}
+
+

@@ -1,10 +1,14 @@
 // this script fills the form fields with the row data
 
-countries
-    .find(function (c) {
-        return c.country_name === row_data.country;
-    })
-    .states.forEach(function (state) {
+console.log('testing script');
+console.log('countries: ', countries);
+
+var country = countries.find(function (c) {
+    return c.country_name === row_data.country;
+});
+
+if (country)
+    country.states.forEach(function (state) {
         var option = document.createElement('option');
         option.appendChild(document.createTextNode(state));
         option.value = state;
@@ -22,7 +26,11 @@ Object.keys(row_data).map(function (key) {
 
 // checkbox
 var checkbox = document.getElementsByName('active')[0];
+
+console.log('checkbox on fill: ', checkbox);
+
 checkbox.checked = row_data.active === '1';
+checkbox.checked = true;
 
 // dates
 document.getElementsByName(

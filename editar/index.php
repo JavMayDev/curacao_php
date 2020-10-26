@@ -13,6 +13,10 @@ include(__DIR__.'/../includes/header.php');
 /* database */
 include(__DIR__.'/../db.php');
 
+if(!isset($_GET['id']))
+    exit('no se ha especificado ningun servicio para editar');
+
+
 $row = mysqli_fetch_assoc(mysqli_query($dbconn, "SELECT * FROM services WHERE id=${_GET['id']}"));
 
 /* format carraige return (for multiline strings) to be supported by json parser in the browser */
@@ -44,7 +48,7 @@ var row_data = JSON.parse('<?= $json_encoded_row?>');
     <div>
 	<div class="form-row">
 	    <div class="form-group col-md-4">
-		<input class="form-control btn btn-secondary" type="submit" value="Cancelar">
+		<input name="cancel" class="form-control btn btn-secondary" type="submit" value="Cancelar">
 	    </div>
 	    <div class="form-group col-md-4">
 		<input class="form-control btn btn-success" name="submit" type="submit" value="Actualizar">

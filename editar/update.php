@@ -7,6 +7,12 @@ if(!user_logged(2)) {
     exit();
 }
 
+if(isset($_POST['cancel'])){
+    header("Location: ../historial");
+    exit();
+}
+
+
 if(isset($_POST['submit'])){
     unset($_POST['submit']);
 
