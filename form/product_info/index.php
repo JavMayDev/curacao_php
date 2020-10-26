@@ -35,21 +35,6 @@
 	</div>
     </div>
     <div class="form-row">
-
-	<div class="form-group col-md-4">
-	    <label for="">Garantía</label>
-	    <input name="warranty" type="text" class="form-control" type="">
-	</div>
-	<div class="form-group col-md-4">
-	    <label for="">Cobertura</label>
-	    <input name="coverage" type="text" class="form-control" type="">
-	</div>
-	<div class="form-group col-md-4">
-	    <label for="">No aplica</label>
-	    <input name="n_a" type="checkbox" class="form-control" type="">
-	</div>
-    </div>
-    <div class="form-row">
 	<div class="form-group col-md-12">
 	    <label for="">Descripción</label>
 	    <textarea name="problem_description" class="form-control" id="" name="" cols="30" rows="5"></textarea>

@@ -4,10 +4,25 @@
 <div>
     <h2>Información del servicio</h2>
     <div class="form-row">
+
+	<div class="form-group col-md-4">
+	    <label for="">Cuenta con garantía</label>
+	    <input name="warranty" type="checkbox" class="form-control" onchange="checkServiceAvailability()">
+	</div>
+	<div class="form-group col-md-4">
+	    <label for="">Cobertura</label>
+	    <input name="coverage" type="number" placeholder="años" class="form-control" onchange="checkServiceAvailability()">
+	</div>
+	<div class="form-group col-md-4">
+	    <label for="">No aplica</label>
+	    <input name="n_a" type="checkbox" class="form-control" onblur="onBlurNA()">
+	</div>
+    </div>
+    <div class="form-row">
 	<div class=" col-md-6 form-group">
 	    <label for="servicio">servicio</label>
-	    <select name="service_type" class="form-control" id="service" name="">
-		<option value="service">servicio</option>
+	    <select name="service_type" class="form-control" id="service" onchange="checkServiceAvailability()">
+		<option value="service" selected="selected">servicio</option>
 		<option value="reclamo">reclamo</option>
 		<option value="anulacion parcial">anulacion parcial</option>
 		<option value="anulacion total">anulacion total</option>
@@ -21,11 +36,11 @@
     <div class="form-row">
 	<div class="col-md-6 form-group">
 	    <label for="">fecha del servicio</label>
-	    <input name="service_date" class="form-control" type="date">
+	    <input name="service_date" class="form-control" type="date" disabled>
 	</div>
 	<div class="col-md-6 form-group">
 	    <label for="">fecha de entrega</label>
-	    <input name="delivery_date" class="form-control" type="date">
+	    <input name="delivery_date" type="date" class="form-control" onchange="checkServiceAvailability()">
 	</div>
     </div>
     <div class="form-row">

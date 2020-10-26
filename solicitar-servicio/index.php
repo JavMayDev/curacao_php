@@ -17,6 +17,8 @@ include(__DIR__.'/../includes/header.php');
 
 <!-- if user's access_level 1, include a script for restrictions -->
 <?php if($_SESSION['access_level'] <= 1): ?>
+<script src="./error_feedback.js"></script>
+<script src="./first_filter.js"></script>
 <script src="./restrictions.js"></script>
 <?php endif; ?>
 
