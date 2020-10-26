@@ -28,19 +28,35 @@ define('BASE_URL', 'http://localhost/curacao_php/');
 	     </button>
 	     <div class="collapse navbar-collapse" id="navbarNav">
 		 <ul class="navbar-nav">
+
+		     <!-- accessible for all users -->
 		     <li class="nav-item">
 			 <a class="nav-link" href="<?= BASE_URL.'solicitar-servicio'?>">Solicitar servicio</a>
 		     </li>
 		     <li class="nav-item">
+			 <a class="nav-link" href="<?= BASE_URL.'buscar'?>">Buscar</a>
+		     </li>
+
+		     <!-- accessible for access_level >= 2 users -->
+		    <?php if(isset($_SESSION['access_level']) && $_SESSION['access_level'] >= 2): ?>
+		     <li class="nav-item">
+			 <a class="nav-link" href="<?= BASE_URL.'ver-todo/index.php'?>">Ver todo</a>
+		     </li>
+		     <li class="nav-item">
 			 <a class="nav-link" href="<?= BASE_URL.'historial'?>">Historial</a>
 		     </li>
+		     <?php endif; ?>
+
+		     <!-- accessible for access_level >= 3 users -->
 		    <?php if(isset($_SESSION['access_level']) && $_SESSION['access_level'] >= 3): ?>
 		     <li class="nav-item">
 			 <a class="nav-link" href="<?= BASE_URL.'signup/index.php'?>">Registrar usuario</a>
 		     </li>
 		     <?php endif; ?>
+
+
 		     <li class="nav-item">
-			 <a class="nav-link" href="<?= BASE_URL.'logout.php'?>">Cerrar sesión</a>
+			 <a class="nav-link text-danger" href="<?= BASE_URL.'logout.php'?>">Cerrar sesión</a>
 		     </li>
 		 </ul>
 	     </div>

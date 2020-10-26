@@ -13,7 +13,7 @@ include(__DIR__.'/../includes/header.php');
 /* database */
 include(__DIR__.'/../db.php');
  
-$query = "SELECT * FROM services WHERE active = 1;";
+$query = "SELECT * FROM services WHERE active = 0;";
 
 $result = mysqli_query($dbconn, $query);
 if(!$result) echo "No hay servicios para mostrar";

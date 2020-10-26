@@ -14,7 +14,7 @@ var fields = {
     cel_tel: 5577322,
 
     // place
-    country: 'Mexico',
+    country: 'México',
     state: 'Jalisco',
     city: 'Zapopan',
     suburb: 'Chapalita',

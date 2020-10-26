@@ -1,7 +1,13 @@
 <?php
 include_once('db.php');
 include('session.php');
-include('includes/header.php'); ?>
+include('includes/header.php'); 
+
+if(isset($_SESSION['logged']) && $_SESSION['logged']):
+    header('Location: buscar');
+else:
+
+?>
 
  <div class="container">
      <div class="row">
@@ -39,4 +45,9 @@ include('includes/header.php'); ?>
 	 </div>
      </div>
  </div>
- <?php include('includes/footer.php'); ?>
+
+ <?php
+endif;
+
+include('includes/footer.php'); 
+?>

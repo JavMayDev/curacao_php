@@ -1,4 +1,3 @@
-<div>ima footer lol</div>
 
 <!-- JQUERY -->
 <!-- <script src="static/jquery.js"></script> -->

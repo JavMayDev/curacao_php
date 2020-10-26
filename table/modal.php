@@ -1,4 +1,3 @@
-
 <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
@@ -28,4 +27,16 @@
 </div>
 
 
+<script>
 
+$('#exampleModal').on('show.bs.modal', function (event) {
+    var triggerer = $(event.relatedTarget) // Button that triggered the modal
+    var rowId = triggerer.data('row_id') // Extract info from data-* attributes
+
+    var modal = $(this)
+    modal.find('#edit_button').attr('href',"http://localhost/curacao_php/editar/index.php?id="+rowId);
+    modal.find('#export_button').attr('href', "http://localhost/curacao_php/exportar/index.php?id="+rowId);
+    // modal.
+})
+
+</script>

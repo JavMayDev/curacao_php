@@ -28,7 +28,7 @@ if($row['password'] == $password){
 
     unset($_SESSION['message']);
 
-    header('Location: historial');
+    header('Location: buscar');
 } else {
     $_SESSION['message'] = 'Wrong password';
     header('Location: index.php');
