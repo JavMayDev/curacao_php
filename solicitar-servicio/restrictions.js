@@ -52,7 +52,7 @@ function validateForm() {
     }
 
     for (var i = 0; i < formControls.length; i++) {
-        if (!formControls[i].classList.contains('is-invalid')) {
+        if (formControls[i].classList.contains('is-invalid')) {
             alert(
                 'Tienes errores en el formulario, por favor revisalo y vuelve intentar enviarlo'
             );
@@ -60,5 +60,5 @@ function validateForm() {
         }
     }
 
-    return false;
+    return true;
 }
