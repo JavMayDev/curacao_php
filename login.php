@@ -1,4 +1,7 @@
 <?php
+/* to avoid header redirect fails */
+ob_start();
+
 
 include('db.php');
 include('session.php');
@@ -34,5 +37,6 @@ if($row['password'] == $password){
     header('Location: index.php');
 }
 
-
+/* to avoid header redirect fails */
+ob_end_flush();
 ?>
