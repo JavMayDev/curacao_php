@@ -61,6 +61,14 @@ if(isset($_POST['submit'])){
     if($res){
 	$_SESSION['msg'] = 'Servicio registrado con éxito';
 	$_SESSION['msg_type'] = 'success';
+
+	mail(
+	    'javimayorque@gmail.com',
+	    'Test',
+	    'testing mail function',
+	    'From: new_service@curacaoexportservices.com'
+	);
+
     } else {
 	$_SESSION['msg'] = 'El servicio no se pudo registrar';
 	$_SESSION['msg_type'] = 'danger';

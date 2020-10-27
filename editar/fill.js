@@ -28,9 +28,10 @@ Object.keys(row_data).map(function (key) {
 var checkbox = document.getElementsByName('active')[0];
 
 console.log('checkbox on fill: ', checkbox);
+console.log( 'active on row data: ', row_data.active);
+console.log( 'type of active on row data: ', typeof row_data.active );
 
 checkbox.checked = row_data.active === '1';
-checkbox.checked = true;
 
 // dates
 document.getElementsByName(

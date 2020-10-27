@@ -10,19 +10,12 @@ if(!user_logged(2)) {
 }
 
 if(isset($_POST['cancel'])){
-    header("Location: ../historial");
+    header("Location: ../");
     exit();
 }
 
-
 if(isset($_POST['submit'])){
     unset($_POST['submit']);
-
-    /* set active value */
-    if(isset($_POST['active']))
-	$_POST['active'] = '1';
-    else
-       	$_POST['active'] = '0';
 
     $post_keys = array_keys($_POST);
 
@@ -31,6 +24,14 @@ if(isset($_POST['submit'])){
 	if($_POST[$field] == '') 
 	    unset ($_POST[$field]);
     }
+
+    /* echo "<br>active on post: ${_POST['active']}<br>"; */
+
+    /* set active value */
+    if(isset($_POST['active']))
+	$_POST['active'] = 1;
+    else
+       	$_POST['active'] = 0;
 
     var_dump($_POST);
 
@@ -50,8 +51,12 @@ if(isset($_POST['submit'])){
 
     $query .= "WHERE id = ${_GET['id']};";
 
+    echo "<br>$query<br>";
+
     include(__DIR__.'/../db.php');
     $res = mysqli_query($dbconn, $query);
+
+    echo "<br>result: $res<br>";
 
     if($res){
 	$_SESSION['msg'] = 'Servicio actualizado con éxito';
@@ -61,7 +66,7 @@ if(isset($_POST['submit'])){
 	$_SESSION['msg_type'] = 'danger';
     }
 
-    header('Location: ../historial');
+    header('Location: ../');
 }
 
 ob_end_flush();
