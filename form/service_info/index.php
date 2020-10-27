@@ -22,7 +22,7 @@
 	<div class=" col-md-6 form-group">
 	    <label for="servicio">servicio</label>
 	    <select name="service_type" class="form-control" id="service" onchange="checkServiceAvailability()">
-		<option value="service" selected="selected">servicio</option>
+		<option value="servicio">servicio</option>
 		<option value="reclamo">reclamo</option>
 		<option value="anulacion parcial">anulacion parcial</option>
 		<option value="anulacion total">anulacion total</option>

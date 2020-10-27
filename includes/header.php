@@ -1,5 +1,6 @@
+
 <?php
-define('BASE_URL', 'http://localhost/curacao_php/');
+include_once(__DIR__.'/../env.php');
 ?>
 
 <html>
