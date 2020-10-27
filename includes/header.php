@@ -1,8 +1,6 @@
-
 <?php
 include_once(__DIR__.'/../env.php');
 ?>
-
 <html>
     <head>
 	<title>Curacao</title>
