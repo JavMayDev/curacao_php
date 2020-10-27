@@ -68,3 +68,5 @@ if(isset($_POST['submit'])){
 	</div>
     </form>
 </div>
+
+<?  include(__DIR__.'/../includes/footer.php'); ?>

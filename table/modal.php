@@ -9,11 +9,7 @@
         </button>
       </div>
       <div class="modal-body">
-	  <?php
-	   if($_SESSION['access_level'] >= 2):
-	       /* echo 'class="table_row"'; */
-	       /* $url = BASE_URL."editar/index.php?id=${row['id']}"; */
-	   ?>
+	  <?php if($_SESSION['access_level'] >= 2): ?>
 	  <div class="form-group">
 	      <a id="edit_button"><button class="btn btn-primary form-control">Editar</button></a>
 	  </div>
@@ -30,13 +26,13 @@
 <script>
 
 $('#exampleModal').on('show.bs.modal', function (event) {
-    var triggerer = $(event.relatedTarget) // Button that triggered the modal
-    var rowId = triggerer.data('row_id') // Extract info from data-* attributes
+    var triggerer = $(event.relatedTarget); // Button that triggered the modal
+    var rowId = triggerer.data('row_id'); // Extract info from data-* attributes
 
-    var modal = $(this)
-    modal.find('#edit_button').attr('href',"http://localhost/curacao_php/editar/index.php?id="+rowId);
-    modal.find('#export_button').attr('href', "http://localhost/curacao_php/exportar/index.php?id="+rowId);
-    // modal.
+    var modal = $(this);
+
+    modal.find('#edit_button').attr('href','<?= BASE_URL?>'+'editar/index.php?id='+rowId);
+    modal.find('#export_button').attr('href','<?= BASE_URL?>'+'exportar/index.php?id='+rowId);
 })
 
 </script>
