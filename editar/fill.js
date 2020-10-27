@@ -26,6 +26,7 @@ Object.keys(row_data).map(function (key) {
 
 // checkbox
 var checkbox = document.getElementsByName('active')[0];
+checkbox.removeAttribute('value');
 
 console.log('checkbox on fill: ', checkbox);
 console.log( 'active on row data: ', row_data.active);

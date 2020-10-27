@@ -33,7 +33,7 @@ if(isset($_POST['submit'])){
     else
        	$_POST['active'] = 0;
 
-    var_dump($_POST);
+    /* var_dump($_POST); */
 
     $query = "UPDATE services SET ";
 

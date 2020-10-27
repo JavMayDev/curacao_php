@@ -23,6 +23,9 @@ include(__DIR__.'/../includes/header.php');
 <?php endif; ?>
 
 </script>
+
+<h1 class="text-center text-primary">Solicitar servicio</h1>
+
 <form action="./submit.php" method="POST" onsubmit="return validateForm()" >
 
 <?php 
@@ -35,9 +38,6 @@ include(__DIR__.'/../includes/header.php');
     <!-- GUARDAR Y LIMPIAR -->
     <div>
 	<div class="form-row">
-	    <div class="form-group col-md-4">
-		<input class="form-control btn btn-secondary" type="submit" value="Limpiar">
-	    </div>
 	    <div class="form-group col-md-4">
 		<input class="form-control btn btn-success" name="submit" type="submit" value="Guardar">
 	    </div>

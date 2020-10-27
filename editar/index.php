@@ -39,6 +39,8 @@ var row_data = JSON.parse('<?= $json_encoded_row?>');
 
 <script src="./filter.js"> </script>
 
+<h1 class="text-center text-primary">Editando servicio</h1>
+
 <form action="./update.php?id=<?= $_GET['id']?>" method="POST" onsubmit="return filter()">
 
     <?php include(__DIR__.'/../form/tech_info/index.php') ?>

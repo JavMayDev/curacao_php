@@ -2,7 +2,6 @@
 // the "name" attribute in each element that keeps as the same
 
 function filter() {
-    // event.preventDefault();
 
     var checkbox = document.getElementsByName('active')[0];
     Object.keys(row_data).map(function (key) {
@@ -12,7 +11,6 @@ function filter() {
                 // if keeps as the same don't submit it (by removing name attribute)
                 element.removeAttribute('name');
     });
-
+    console.log( 'checkbox just before submit: ', checkbox.name );
     return true;
-    // return false;
 }
