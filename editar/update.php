@@ -53,6 +53,14 @@ if(isset($_POST['submit'])){
     include(__DIR__.'/../db.php');
     $res = mysqli_query($dbconn, $query);
 
+    if($res){
+	$_SESSION['msg'] = 'Servicio actualizado con éxito';
+	$_SESSION['msg_type'] = 'success';
+    } else {
+	$_SESSION['msg'] = 'No se pudo actualizar el servicio';
+	$_SESSION['msg_type'] = 'danger';
+    }
+
     header('Location: ../historial');
 }
 

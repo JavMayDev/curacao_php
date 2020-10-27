@@ -22,6 +22,8 @@
 	<div class=" col-md-6 form-group">
 	    <label for="servicio">servicio</label>
 	    <select name="service_type" class="form-control" id="service" onchange="checkServiceAvailability()">
+
+		<option value disabled selected>-- tipo de servicio --</option>
 		<option value="servicio">servicio</option>
 		<option value="reclamo">reclamo</option>
 		<option value="anulacion parcial">anulacion parcial</option>
@@ -36,7 +38,9 @@
     <div class="form-row">
 	<div class="col-md-6 form-group">
 	    <label for="">fecha del servicio</label>
-	    <input name="service_date" class="form-control" type="date" disabled>
+	    <input name="service_date"
+		class="form-control" 
+		type="date" <?= $_SESSION['access_level'] <= 1 ? 'disabled' : '' ?>>
 	</div>
 	<div class="col-md-6 form-group">
 	    <label for="">fecha de entrega</label>
@@ -67,3 +71,11 @@
     </div>
 </div>
 
+<script>
+
+var now = new Date(Date.now());
+var day = ('0' + now.getDate()).slice(-2);
+var month = ('0' + (now.getMonth() + 1)).slice(-2);
+document.getElementsByName('service_date')[0].value =
+    now.getFullYear() + '-' + month + '-' + day;
+</script>

@@ -9,7 +9,7 @@ create table users (
 
     name varchar(50),
     email varchar(20),
-    password varchar(50),
+    password varchar(255),
 
     /* access level, can be 1, 2 or 3 */
     access_level int(1)

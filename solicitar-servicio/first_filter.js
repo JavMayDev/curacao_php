@@ -5,8 +5,9 @@ function checkServiceAvailability() {
     // those values depends of the warranty and time transcurred
     if (
         serviceSelect.value === 'reclamo' ||
-        serviceSelect.value === 'service'
+        serviceSelect.value === 'servicio'
     ) {
+        console.log('is service or reclaim');
         // if doesn't have warranty and wants to choose 'servicio' or 'reclamo', set error feedback
         if (!warranty.checked) {
             setErrorFeedback(
@@ -14,7 +15,7 @@ function checkServiceAvailability() {
                 true,
                 'no se puede solicitar este servicio sin garantía'
             );
-	    return
+            return;
         } else setErrorFeedback(serviceSelect, false);
 
         var deliberyDateInput = document.getElementsByName('delivery_date')[0];
@@ -33,9 +34,8 @@ function checkServiceAvailability() {
             );
         } else setErrorFeedback(deliberyDateInput, false);
 
-        if (serviceSelect.value === 'service') {
-            coverageInput = document.getElementsByName('coverage')[0];
-
+        coverageInput = document.getElementsByName('coverage')[0];
+        if (serviceSelect.value === 'servicio') {
             // if empty field
             if (!coverageInput.value)
                 setErrorFeedback(
@@ -55,5 +55,8 @@ function checkServiceAvailability() {
                 else setErrorFeedback(coverageInput, false);
             }
         } else setErrorFeedback(coverageInput, false);
+    } else {
+        console.log('isnt that service');
+        setErrorFeedback(serviceSelect, false);
     }
 }

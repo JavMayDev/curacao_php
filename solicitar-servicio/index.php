@@ -45,7 +45,7 @@ include(__DIR__.'/../includes/header.php');
     </div>
 </form>
 
-<script src="./fill.js"></script>
+<!-- <script src="./fill.js"></script> -->
 
 <?php
 include(__DIR__.'/../includes/footer.php');

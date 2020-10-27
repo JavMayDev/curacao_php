@@ -5,7 +5,6 @@ ob_start();
 
 include('db.php');
 include('session.php');
-unset($_SESSION['message']);
 
 /* get credentials */
 $email = $_POST['email'];
@@ -16,24 +15,24 @@ $query = "SELECT email, password, id, access_level FROM users WHERE email='$emai
 $result = mysqli_query($dbconn, $query);
 
 if(mysqli_num_rows($result) == 0){
-    $_SESSION['message'] = 'no such user';
+    $_SESSION['msg'] = 'No existe ningun usuario con ese email';
+    $_SESSION['msg_type'] = 'danger';
     header('Location: index.php');
-    exit();
+    exit;
 }
 
 $row = mysqli_fetch_assoc($result);
-var_dump($row);
 
-if($row['password'] == $password){
+if(password_verify($_POST['password'], $row['password'])){
     $_SESSION['user_id'] = $row['id'];
     $_SESSION['access_level'] = $row['access_level'];
     $_SESSION['logged'] = true;
 
-    unset($_SESSION['message']);
 
     header('Location: buscar');
 } else {
-    $_SESSION['message'] = 'Wrong password';
+    $_SESSION['msg'] = 'Contraseña incorrecta';
+    $_SESSION['msg_type'] = 'danger';
     header('Location: index.php');
 }
 

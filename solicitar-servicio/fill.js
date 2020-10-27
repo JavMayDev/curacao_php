@@ -2,7 +2,7 @@
 
 var fields = {
     // service info
-    service_type: 'servicio',
+    // service_type: 'servicio',
     order_num: 213435,
     client_account_num: 45673,
     sale_store: 'Los Angeles',
@@ -36,9 +36,3 @@ Object.keys(fields).map(function (key) {
     if (!element) return;
     element.value = fields[key];
 });
-
-var now = new Date(Date.now());
-var day = ('0' + now.getDate()).slice(-2);
-var month = ('0' + (now.getMonth() + 1)).slice(-2);
-document.getElementsByName('service_date')[0].value =
-    now.getFullYear() + '-' + month + '-' + day;
