@@ -22,7 +22,7 @@ if(isset($_POST['submit_email'])){
 
 	/* first, check if already registered */
 	$res = mysqli_query($dbconn, "SELECT email FROM emails WHERE email = '${_POST['email']}';");
-	if($res->num_rows > 0){
+	if($res && $res->num_rows > 0){
 	    $_SESSION['msg'] = 'Ese email ya está registrado';
 	    $_SESSION['msg_type'] = 'danger';
 	} else {
@@ -30,7 +30,7 @@ if(isset($_POST['submit_email'])){
 	    $res = mysqli_query($dbconn, $query);
 	    if(!$res) {
 		$_SESSION['msg'] = 'No se pudo registrar el correo';
-		$_SESSION['msg-type'] = 'danger';
+		$_SESSION['msg_type'] = 'danger';
 	    }
 	}
     }
@@ -64,6 +64,7 @@ $result = mysqli_query($dbconn, $query);
 	</form>
     </div>
     <div class="col-md-6">
+	<?php if($result): ?>
 	<ul class="list-group">
 	    <?php
 	    if(isset($result)):
@@ -77,6 +78,7 @@ $result = mysqli_query($dbconn, $query);
 	    </li>
 	    <?php endwhile; endif; ?>
 	</ul>
+	<?php endif; ?>
     </div>
 </div>
 

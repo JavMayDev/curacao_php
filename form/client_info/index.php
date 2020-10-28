@@ -19,7 +19,7 @@
 	<div class="form-group col-md-4">
 	    <label for="">País</label>
 	    <select onblur="onCountryBlur()" name="country" class="form-control">
-		<option value="México">México</option>
+		<option selected="selected" hidden></option>
 	    </select>
 	</div>
 	<div class="form-group col-md-4">

@@ -15,7 +15,7 @@
 	</div>
 	<div class="form-group col-md-4">
 	    <label for="">No aplica</label>
-	    <input name="n_a" type="checkbox" class="form-control" onblur="onBlurNA()">
+	    <input name="n_a" type="checkbox" class="form-control" onchange="checkServiceAvailability()">
 	</div>
     </div>
     <div class="form-row">
@@ -44,7 +44,8 @@
 	</div>
 	<div class="col-md-6 form-group">
 	    <label for="">fecha de entrega</label>
-	    <input name="delivery_date" type="date" class="form-control" onchange="checkServiceAvailability()">
+	    <input name="delivery_date" type="date" class="form-control"
+		onchange="checkDate()">
 	</div>
     </div>
     <div class="form-row">
@@ -55,6 +56,7 @@
 	<div class="col-md-6 form-group">
 	    <label for="">Tienda donde se realizó la venta</label>
 	    <select name="sale_store" id="" class="form-control" name="">
+		<option disabled hidden selected="selected"></option>
 		<option value="Los angeles">Los angeles</option>
 		<option value="Panorama">Panorama</option>
 		<option value="South Gate">South Gate</option>
@@ -72,6 +74,23 @@
 </div>
 
 <script>
+
+    // little function to check if future date selected
+    function checkDate(){
+	var deliveryDate = document.getElementsByName('delivery_date')[0];
+	var date = new Date(deliveryDate.value);
+	var toDate = new Date(Date.now());
+	console.log( 'date: ', date );
+
+	// is that in the future?
+	if(date.getTime() > toDate.getTime()){
+	    setErrorFeedback(deliveryDate, true, 'No puedes elegir una fecha futura')
+	} else {
+	    setErrorFeedback(deliveryDate, false);
+	}
+
+	checkServiceAvailability();
+    }
 
 var now = new Date(Date.now());
 var day = ('0' + now.getDate()).slice(-2);

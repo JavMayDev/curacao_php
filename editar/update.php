@@ -66,7 +66,7 @@ if(isset($_POST['submit'])){
 	$_SESSION['msg_type'] = 'danger';
     }
 
-    header('Location: ../');
+    header('Location: ..');
 }
 
 ob_end_flush();

@@ -51,6 +51,18 @@ function validateForm() {
         );
     }
 
+    // Interior num isn't a required field
+    document
+        .getElementsByName('interior_num')[0]
+        .classList.remove('is-invalid');
+
+    // if not apply warranty allow empty coverage
+    if (document.getElementsByName('n_a')[0].checked) {
+        document
+            .getElementsByName('coverage')[0]
+            .classList.remove('is-invalid');
+    }
+
     for (var i = 0; i < formControls.length; i++) {
         if (formControls[i].classList.contains('is-invalid')) {
             alert(

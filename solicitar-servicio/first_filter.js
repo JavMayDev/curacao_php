@@ -1,6 +1,19 @@
 function checkServiceAvailability() {
     var serviceSelect = document.getElementsByName('service_type')[0];
     var warranty = document.getElementsByName('warranty')[0];
+    var naCheckbox = document.getElementsByName('n_a')[0];
+    coverageInput = document.getElementsByName('coverage')[0];
+
+    if(naCheckbox.checked){
+	warranty.setAttribute('disabled', true);
+	setErrorFeedback(warranty, false);
+	coverageInput.setAttribute('disabled', true);
+	setErrorFeedback(coverageInput, false);
+    } else {
+	warranty.removeAttribute('disabled');
+	coverageInput.removeAttribute('disabled');
+
+    }
 
     // those values depends of the warranty and time transcurred
     if (
@@ -34,7 +47,6 @@ function checkServiceAvailability() {
             );
         } else setErrorFeedback(deliberyDateInput, false);
 
-        coverageInput = document.getElementsByName('coverage')[0];
         if (serviceSelect.value === 'servicio') {
             // if empty field
             if (!coverageInput.value)
@@ -50,7 +62,7 @@ function checkServiceAvailability() {
                     setErrorFeedback(
                         coverageInput,
                         true,
-                        'su garantia ya ha expirado'
+                        'La garantía no cubre el tiempo transcurrido'
                     );
                 else setErrorFeedback(coverageInput, false);
             }
