@@ -54,44 +54,47 @@ if(isset($_POST['submit'])){
     /* perform the query */
     $res = mysqli_query($dbconn,$query);
 
-    /* error_reporting(-1); */
-    /* ini_set('display_errors', 'On'); */
-    /* set_error_handler("var_dump"); */
-
     if($res){
 	$_SESSION['msg'] = 'Servicio registrado con éxito';
 	$_SESSION['msg_type'] = 'success';
 
-/* 	include(__DIR__.'/../vendor/phpmailer/phpmailer/src/Exception.php'); */
-/* 	include(__DIR__.'/../vendor/phpmailer/phpmailer/src/PHPMailer.php'); */
-/* 	include(__DIR__.'/../vendor/phpmailer/phpmailer/src/SMTP.php'); */
+	include(__DIR__.'/../vendor/phpmailer/phpmailer/src/Exception.php');
+	include(__DIR__.'/../vendor/phpmailer/phpmailer/src/PHPMailer.php');
+	include(__DIR__.'/../vendor/phpmailer/phpmailer/src/SMTP.php');
 
-/* 	try { */
-/* 	    $email_from = 'javidev.8@gmail.com'; */
-/* 	    $pass = 'rumpeldeveloper'; */
+	$mail = new PHPMailer\PHPMailer\PHPMailer(true);
+	try {
 
-/* 	    $mail = new PHPMailer\PHPMailer\PHPMailer(); */
-/* 	    $mail->IsSMTP(); */
-/* 	    $mail->SMTPDebug = 2; */
-/* 	    $mail->Host       = 'smtp.gmail.com'; */
-/* 	    $mail->Port       = 587; */
-/* 	    //Definmos la seguridad como TLS */
-/* 	    $mail->SMTPSecure = 'tls'; */
-/* 	    $mail->SMTPAuth   = true; */
-/* 	    $mail->Username   = $email_from; */
-/* 	    $mail->Password   = $pass; */
-/* 	    $mail->SetFrom($email_from, 'Mi nombre'); */
-/* 	    $mail->AddAddress('javimayorque@gmail.com', 'El Destinatario'); */
-/* 	    //Definimos el tema del email */
-/* 	    $mail->Subject = 'Esto es un correo de prueba'; */
-/* 	    //Para enviar un correo formateado en HTML lo cargamos con la siguiente funci�n. Si no, puedes meterle directamente una cadena de texto. */
-/* 	    $mail->AltBody = 'This is a plain-text message body'; */
-/* 	    echo "just before send"; */
-/* 	    $mail->send(); */
+	    //Server settings
+	    $mail->SMTPDebug = 0;
+	    $mail->isSMTP();                                    
+	    $mail->Host       = SMPT_HOST;
+	    $mail->SMTPAuth   = true;                          
+	    $mail->Username   = EMAIL;
+	    $mail->Password   = EMAIL_PASS;
+	    /* $mail->SMTPSecure = 'tls'; */
+	    $mail->Port       = 587;
 
-/* 	} catch(Exception $e){ */
-/* 	    echo $e.getMessage(); */
-/* 	} */
+	    /* add emails */
+	    $res = mysqli_query($dbconn, "SELECT email FROM emails");
+	    foreach(mysqli_fetch_array($res) as $email)
+		$mail->addAddress($email);
+
+	    $mail->setFrom('new_service@curacaoexportservices.com', 'Mailer');
+
+	    // Content
+	    $mail->isHTML(true);
+	    $mail->Subject = 'Nuevo sevicio';
+	    $mail->Body = '<p>Se ha dado de alta un servicio</p>';
+
+	    $mail->send();
+	    echo 'Message has been sent';
+	} catch (Exception $e) {
+	    echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
+	    $_SESSION['msg'] = 'El servicio se registró correctamente pero no se pudo enviar el correo';
+	    $_SESSION['msg_type'] = 'warning';
+	}
+
 
     } else {
 	$_SESSION['msg'] = 'El servicio no se pudo registrar';

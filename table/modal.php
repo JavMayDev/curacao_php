@@ -15,8 +15,13 @@
 	  </div>
 	  <? endif; ?>
 	  <div class="form-group">
-	      <a id="export_button"><button class="btn btn-primary form-control">Exportar</button></a>
+	      <a id="export_button"><button class="btn btn-secondary form-control">Exportar</button></a>
 	  </div>
+	  <?php if($_SESSION['access_level'] >= 3): ?>
+	  <div class="form-group">
+	      <a id="delete_button"><button class="btn btn-danger form-control">Eliminar</button></a>
+	  </div>
+	  <? endif; ?>
       </div>
     </div>
   </div>
@@ -33,6 +38,7 @@ $('#exampleModal').on('show.bs.modal', function (event) {
 
     modal.find('#edit_button').attr('href','<?= BASE_URL?>'+'editar/index.php?id='+rowId);
     modal.find('#export_button').attr('href','<?= BASE_URL?>'+'exportar/index.php?id='+rowId);
+    modal.find('#delete_button').attr('href','<?= BASE_URL?>'+'editar/delete.php?id='+rowId);
 })
 
 </script>

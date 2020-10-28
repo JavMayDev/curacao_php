@@ -45,10 +45,29 @@ if(isset($_POST['submit'])){
     }
 }
 
+if(isset($_POST['delete_user'])){
+    echo "on delete";
+    $query = "DELETE FROM users WHERE id='${_GET['id']}';";
+    $res = mysqli_query($dbconn, $query);
+    var_dump($res);
+    if($res){
+	$_SESSION['msg'] = 'Usuario elimiado';
+	$_SESSION['msg_type'] = 'success';
+    } else {
+	$_SESSION['msg'] = 'El usuario no se pudo eliminar';
+	$_SESSION['msg_type'] = 'danger';
+    }
+}
+
+$query = "SELECT id, name, access_level FROM users;";
+$users_result = mysqli_query($dbconn, $query);
+
 ?>
 
-<div class="container mx-auto">
+<div class="row">
 
+<div class="card col-md-6">
+<div class="card-body">
     <form action="" method="POST">
 	<div class="form-row">
 	    <div class="form-grou col-md-6">
@@ -61,11 +80,11 @@ if(isset($_POST['submit'])){
 	    </div>
 	</div>
 	<div class="form-row">
-	    <div class="form-group col-md-8">
+	    <div class="form-group col-md-6">
 		<label for="">contraseña</label>
 		<input name="password" class="form-control" type="password">
 	    </div>
-	    <div class="form-grou col-md-4">
+	    <div class="form-grou col-md-6">
 		<label for="">Nivel de acceso</label>
 		<select name="access_level" id="" class="form-control" name="">
 		    <option selected="selected" value="1">Asesor</option>
@@ -80,6 +99,24 @@ if(isset($_POST['submit'])){
 	    </div>
 	</div>
     </form>
+</div>
+</div>
+    <div class="col-md-6">
+	<ul class="list-group">
+	    <?php
+		$roles = array(0, 'asesor', 'supervisor', 'administrador');
+		while($row = mysqli_fetch_array($users_result)): 
+	    ?>
+	    <li class="list-group-item d-flex justify-content-between">
+		<span ><?= $row['name']?></span>
+		<span ><?= $roles[$row['access_level']]?></span>
+		<form method="POST" action=".?id=<?= $row['id']?>">
+		    <input type="submit" value="Eliminar" name="delete_user" class="btn btn-danger">
+		</form>
+	    </li>
+	    <? endwhile; ?>
+	</ul>
+    </div>
 </div>
 
 <!-- Prevent form submit on reload -->

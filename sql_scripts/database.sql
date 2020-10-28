@@ -59,4 +59,8 @@ create table services (
     notes text
 );
 
+create table emails (
+    id int not null primary key auto_increment,
+    email varchar(255)
+);
 
