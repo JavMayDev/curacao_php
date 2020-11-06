@@ -15,13 +15,42 @@ if(isset($_SESSION['msg'])):
     right: 2em;
 }
 </style>
-    <div class="notification alert alert-<?=$_SESSION['msg_type']?> alert-dismissible fade show" role="alert">
+<div class="notification alert alert-<?=$_SESSION['msg_type']?> alert-dismissible fade show" role="alert">
     <?= $_SESSION['msg']?>
   <button type="button" class="close" data-dismiss="alert" aria-label="Close">
     <span aria-hidden="true">&times;</span>
   </button>
 </div>
+
+<?php elseif(isset($_SESSION['invasive_alert'])): ?>
+
+<!-- auto-trigger modal script -->
+<script type="text/javascript">
+    $(window).on('load',function(){
+        $('#alertModal').modal('show');
+    });
+</script>
+
+<!-- Modal -->
+<div class="modal fade" id="alertModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+    <div class="modal-header alert alert-<?= $_SESSION['alert_type']?>" 
+	 style="margin-bottom: 0; padding: 30px;"
+    >
+	<?= $_SESSION['invasive_alert']?>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
 <?php
+
+unset($_SESSION['invasive_alert']);
+unset($_SESSION['alert_type']);
 endif;
 unset($_SESSION['msg']);
 unset($_SESSION['msg_type']);

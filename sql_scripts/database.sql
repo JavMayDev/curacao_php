@@ -56,6 +56,7 @@ create table services (
     supervisor varchar(50),
 
     active boolean default true,
+    active_days int(3),
     notes text
 );
 

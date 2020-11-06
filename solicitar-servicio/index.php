@@ -20,6 +20,7 @@ include(__DIR__.'/../includes/header.php');
 <script src="./error_feedback.js"></script>
 <script src="./first_filter.js"></script>
 <script src="./restrictions.js"></script>
+<script src="./lockForm.js"></script>
 <?php endif; ?>
 
 </script>
@@ -39,7 +40,10 @@ include(__DIR__.'/../includes/header.php');
     <div>
 	<div class="form-row">
 	    <div class="form-group col-md-4">
-		<input class="form-control btn btn-success" name="submit" type="submit" value="Guardar">
+		<input 
+		    lockable="true" 
+		    class="form-control 
+		    btn btn-success" name="submit" type="submit" value="Guardar">
 	    </div>
 	</div>
     </div>

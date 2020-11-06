@@ -6,7 +6,7 @@
     <div class="form-row">
 	<div class="form-group col-md-4">
 	    <label for="">Articulo</label>
-	    <select name="article" id="" class="form-control" name="">
+	    <select lockable="true" name="article" id="" class="form-control" name="">
 
 		<option value="Televisor">Televisor</option>
 		<option value="Recamara">Recamara</option>
@@ -27,28 +27,19 @@
 	</div>
 	<div class="form-group col-md-4">
 	    <label for="">Marca</label>
-	    <input name="brand" class="form-control" type="">
+	    <input lockable="true" name="brand" class="form-control" type="">
 	</div>
 	<div class="form-group col-md-4">
 	    <label for="">Modelo</label>
-	    <input name="model" class="form-control" type="">
+	    <input lockable="true" name="model" class="form-control" type="">
 	</div>
     </div>
     <div class="form-row">
 	<div class="form-group col-md-12">
 	    <label for="">Descripción</label>
-	    <textarea name="problem_description" class="form-control" id="" name="" cols="30" rows="5"></textarea>
+	    <textarea lockable="true" name="problem_description" class="form-control" id="" name="" cols="30" rows="5"></textarea>
 	</div>
     </div>
-    <div class="form-row">
-	<div class="form-group col-md-6">
-	    <label for="">Servicio enviado por (Asociado)</label>
-	    <input name="associated" class="form-control" type="">
-	</div>
-	<div class="form-group col-md-6">
-	    <label for="">Revisado por (Supervisor)</label>
-	    <input name="supervisor" class="form-control" type="">
-	</div>
-    </div>
+    
 </div>
 

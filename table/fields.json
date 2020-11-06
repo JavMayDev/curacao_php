@@ -12,6 +12,10 @@
 	"name": "Fecha de entrega"
     },
     {
+	"key": "active_days",
+	"name": "Dias activo"
+    },
+    {
 	"key": "order_num",
 	"name": "Número de orden"
     },

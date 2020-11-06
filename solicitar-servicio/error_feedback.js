@@ -9,6 +9,7 @@ function setErrorFeedback(formControl, error, feedbackMsg = null) {
             errMsg.appendChild(document.createTextNode(feedbackMsg));
             formControl.parentElement.appendChild(errMsg);
         }
+	return
     } else {
 	// if checked as invalid already
         if (formControl.classList.contains('is-invalid')) {
@@ -21,4 +22,5 @@ function setErrorFeedback(formControl, error, feedbackMsg = null) {
 	    console.log( 'after set as valid: ', formControl );
         }
     }
+    return 
 }
