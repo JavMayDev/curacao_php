@@ -2,7 +2,7 @@
 /* to avoid header redirect fails */
 ob_start();
 
-include('../session.php');
+include(__DIR__.'/../session.php');
 
 function user_logged($min_access_level) {
     if (!$_SESSION['user_id']) {
