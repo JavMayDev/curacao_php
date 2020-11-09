@@ -20,7 +20,7 @@
     <div class="form-row">
 	<div class=" col-md-6 form-group">
 	    <label for="servicio">servicio</label>
-	    <select name="service_type" class="form-control" id="service" >
+	    <select name="service_type" denyempty="true" class="form-control" id="service" >
 
 		<option value disabled selected>-- tipo de servicio --</option>
 		<option value="servicio">servicio</option>
@@ -29,7 +29,7 @@
 	    </div>
 	<div class="col-md-6 form-group">
 	    <label for="servicio">No. de cuenta del cliente</label>
-	    <input name="client_account_num" lockable="true" class="form-control" type="text" >
+	    <input name="client_account_num" denyempty="true" lockable="true" class="form-control" type="text" >
 	</div>
     </div>
     <div class="form-row">
@@ -41,18 +41,18 @@
 	</div>
 	<div class="col-md-6 form-group">
 	    <label for="">fecha de entrega</label>
-	    <input name="delivery_date" type="date" class="form-control"
+	    <input name="delivery_date" denyempty="true" type="date" class="form-control"
 		>
 	</div>
     </div>
     <div class="form-row">
 	<div class="col-md-6 form-group">
 	    <label for="">No. de orden</label>
-	    <input name="order_num" lockable="true" class="form-control" type="">
+	    <input name="order_num" lockable="true" denyempty="true" class="form-control" type="">
 	</div>
 	<div class="col-md-6 form-group">
 	    <label for="">Tienda donde se realizó la venta</label>
-	    <select name="sale_store" lockable="true" id="" class="form-control" name="">
+	    <select name="sale_store" denyempty="true" lockable="true" id="" class="form-control" name="">
 		<option disabled hidden selected="selected"></option>
 		<option value="Los angeles">Los angeles</option>
 		<option value="Panorama">Panorama</option>

@@ -21,6 +21,7 @@ include(__DIR__.'/../includes/header.php');
 <script src="./first_filter.js"></script>
 <script src="./restrictions.js"></script>
 <script src="./lockForm.js"></script>
+<script src="./denyEmpty.js"></script>
 <?php endif; ?>
 
 </script>
@@ -49,7 +50,8 @@ include(__DIR__.'/../includes/header.php');
     </div>
 </form>
 
-<!-- <script src="./fill.js"></script> -->
+<!-- DEV SCRIPT -->
+<script src="./fill.js"></script>
 
 <?php
 include(__DIR__.'/../includes/footer.php');

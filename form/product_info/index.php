@@ -6,7 +6,7 @@
     <div class="form-row">
 	<div class="form-group col-md-4">
 	    <label for="">Articulo</label>
-	    <select lockable="true" name="article" id="" class="form-control" name="">
+	    <select denyempty="true" lockable="true" name="article" id="" class="form-control" name="">
 
 		<option value="Televisor">Televisor</option>
 		<option value="Recamara">Recamara</option>
@@ -27,17 +27,17 @@
 	</div>
 	<div class="form-group col-md-4">
 	    <label for="">Marca</label>
-	    <input lockable="true" name="brand" class="form-control" type="">
+	    <input denyempty="true" lockable="true" name="brand" class="form-control" type="">
 	</div>
 	<div class="form-group col-md-4">
 	    <label for="">Modelo</label>
-	    <input lockable="true" name="model" class="form-control" type="">
+	    <input denyempty="true" lockable="true" name="model" class="form-control" type="">
 	</div>
     </div>
     <div class="form-row">
 	<div class="form-group col-md-12">
 	    <label for="">Descripción</label>
-	    <textarea lockable="true" name="problem_description" class="form-control" id="" name="" cols="30" rows="5"></textarea>
+	    <textarea denyempty="true" lockable="true" name="problem_description" class="form-control" id="" name="" cols="30" rows="5"></textarea>
 	</div>
     </div>
     
