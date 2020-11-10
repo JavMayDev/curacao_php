@@ -2,8 +2,8 @@
     "packages": [
         {
             "name": "mpdf/mpdf",
-            "version": "v8.0.7",
-            "version_normalized": "8.0.7.0",
+            "version": "7.0",
+            "version_normalized": "7.0.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/mpdf/mpdf.git",

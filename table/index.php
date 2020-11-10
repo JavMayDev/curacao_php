@@ -20,14 +20,16 @@ include(__DIR__.'/modal.php');
 
 		<!-- <td>Días activo</td> -->
 		<?php foreach($fields as $field): ?>
-		<td><?= $field['name']?></td>
+		<td
+		><?= $field['name']?></td>
 		<? endforeach; ?>
 	    </tr>
 	</thead>
 	<tbody>
 	    <?php
 	    if(isset($result)):
-	    while($row = mysqli_fetch_array($result)): ?>
+		while($row = mysqli_fetch_array($result)): 
+	    ?>
 	    <tr 
 	   data-toggle="modal" data-target="#exampleModal" class="table_row"
 	   <?php
@@ -35,12 +37,18 @@ include(__DIR__.'/modal.php');
 	    echo "data-row_id='$row_id'";
 	   ?>
 		>
-		<?php foreach($fields as $field): ?>
+		<?php
+		foreach($fields as $field): 
+
+		    /* format dates */
+		    if($field['key'] == 'service_date' || $field['key'] == 'delivery_date')
+			$row[$field['key']] = explode(' ',$row[$field['key']])[0];
+
+		?>
 
 		<!-- FOR ACTIVE FIELD -->
-		<td><?php
-		if($field['key'] == 'active'):
-		?>
+		<td>
+		<?php if($field['key'] == 'active'): ?>
 		<span class="dot" style="background-color: <?php 
 		    if($row[$field['key']] == 1){ echo 'green'; }
 			else { echo 'red'; }
@@ -48,6 +56,7 @@ include(__DIR__.'/modal.php');
 
 		<!-- FOR ACTIVE DAYS FIELD -->
 		<?php elseif($field['key'] == 'active_days' && !$row[$field['key']]): 
+		    /* if empty from database, print today's date */
 		    echo date_diff(date_create($row['service_date']),
 		    date_create(date("Y-m-d")))->format("%a");
 

@@ -20,6 +20,10 @@
 	"name": "Número de orden"
     },
     {
+	"key": "client_receiver_name",
+	"name": "Beneficiario"
+    },
+    {
 	"key": "client_account_num",
 	"name": "No. de cuenta del cliente"
     },
@@ -37,7 +41,8 @@
     },
     {
 	"key": "problem_description",
-	"name": "Descripcion del problema"
+	"name": "Descripcion del problema",
+	"large": "true"
     },
     {
 	"key": "supervisor",

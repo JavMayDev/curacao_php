@@ -20,52 +20,28 @@ $row = mysqli_fetch_assoc(mysqli_query($dbconn, "SELECT * FROM services WHERE id
 if(!$row)
     exit("No existe tal servicio en la base de datos");
 
-/* var_dump($row); */
+/* format dates */
+$row['service_date'] = explode(' ', $row['service_date'])[0];
+$row['delivery_date'] = explode(' ', $row['delivery_date'])[0];
+
+/* html encode multiline strings */
+$row['problem_description'] = str_replace("\r\n", "<br>", $row['problem_description']);
+$row['notes'] = str_replace("\r\n", "<br>", $row['notes']);
 
 require(__DIR__.'/../../vendor/autoload.php');
 
+/* import table parts */
 require(__DIR__.'/tables/client_info.php');
-/* require(__DIR__.'/tables/service_info.php'); */
-
-
-$grid = "
-<style>
-table { 
-    width: 100%;
-}
-table, th, td {
-  border: 1px solid black;
-  border-collapse: collapse;
-}
-th, td {
-  padding: 5px;
-  text-align: left;    
-}
-.field {
-    background-color: #aaa;
-}
-</style>
-<table>
-    <tr>
-        <td class='field'>Name</td>
-        <td colspan='2'>Juan fenicio de la Cana</td>
-    </tr>
-    <tr>
-        <td class='field' colspan='2'>Some super large field name</td>
-        <td>10</td>
-    </tr>
-    <tr>
-        <td>Some</td>
-        <td>other</td>
-        <td>things</td>
-    </tr>
-</table>
-";
+require(__DIR__.'/tables/service_info.php');
+require(__DIR__.'/tables/product_info.php');
 
 $document = "
 <style>
     table {
 	width: 100%;
+    }
+    .section {
+	margin-top: 50px;
     }
     table, th, td {
       border: 1px solid black;
@@ -76,16 +52,23 @@ $document = "
       text-align: left;    
     }
     .field {
+	background-color: #ddd;
+    }
+    .header {
 	background-color: #aaa;
+	text-align: center;
     }
 </style>
+$service_info_table
 $client_info_table
+$product_info_table
 ";
+
+$filename = 'servicio_'.$row['order_num'];
 
 $mpdf = new \Mpdf\Mpdf();
 $mpdf->WriteHTML($document);
-/* $mpdf->WriteHTML($grid); */
-$mpdf->Output();
-
+$mpdf->setTitle($filename);
+$mpdf->Output($filename.'.pdf','I');
 
 ?>
