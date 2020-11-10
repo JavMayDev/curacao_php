@@ -16,6 +16,10 @@
 	"name": "Dias activo"
     },
     {
+	"key": "last_update_date",
+	"name": "Ultima modificacion"
+    },
+    {
 	"key": "order_num",
 	"name": "Número de orden"
     },

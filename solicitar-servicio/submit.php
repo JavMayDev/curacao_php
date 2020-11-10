@@ -25,6 +25,9 @@ if(isset($_POST['submit'])){
 	    unset ($_POST[$field]);
     }
 
+    /* set last update date */
+    $_POST['last_update_date'] = date('Y-m-d');
+
     $query = "INSERT INTO services (";
 
     $i = 0;

@@ -41,7 +41,11 @@ include(__DIR__.'/modal.php');
 		foreach($fields as $field): 
 
 		    /* format dates */
-		    if($field['key'] == 'service_date' || $field['key'] == 'delivery_date')
+		    if(
+			$field['key'] == 'service_date' || 
+			$field['key'] == 'delivery_date' ||
+			$field['key'] == 'last_update_date'
+		    )
 			$row[$field['key']] = explode(' ',$row[$field['key']])[0];
 
 		?>

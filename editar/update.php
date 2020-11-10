@@ -27,7 +27,6 @@ if(isset($_POST['submit'])){
 	    unset ($_POST[$field]);
     }
 
-    /* echo "<br>active on post: ${_POST['active']}<br>"; */
 
     /* set active value */
     if(isset($_POST['active']))
@@ -47,6 +46,9 @@ if(isset($_POST['submit'])){
 		(time() - strtotime(explode(' ', $res[1])[0])) / (60 * 60 * 24), 
 	    -1);
     }
+
+    /* set last update date */
+    $_POST['last_update_date'] = date('Y-m-d');
 
     $query = "UPDATE services SET ";
 
