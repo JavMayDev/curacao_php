@@ -17,9 +17,9 @@
 	  <div class="form-group">
 	      <a id="export_button"><button class="btn btn-secondary form-control">Exportar</button></a>
 	  </div>
-	  <div class="form-group">
-	      <a id="view_pdf_button" target="_blank"><button class="btn btn-secondary form-control">Ver en PDF</button></a>
-	  </div>
+	  <!-- <div class="form-group"> -->
+	  <!--     <a id="view_pdf_button" target="_blank"><button class="btn btn-secondary form-control">Ver en PDF</button></a> -->
+	  <!-- </div> -->
 	  <?php if($_SESSION['access_level'] >= 3): ?>
 	  <div class="form-group">
 	      <a id="delete_button"><button class="btn btn-danger form-control">Eliminar</button></a>

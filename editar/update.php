@@ -41,28 +41,12 @@ if(isset($_POST['submit'])){
 	    "SELECT active, service_date FROM services WHERE id = ${_GET['id']}"
 	));
 	/* var_dump($res); */
-	if($res[0] == '1'){
+	if($res[0] == '1')
 	    /* if was active, capture active days */
-	    echo '<br>string time: <br>';
-	    var_dump(explode(' ', $res[1])[0]);
-	    echo '<br>time date: <br>';
-	    var_dump(strtotime(explode(' ', $res[1])[0]));
-	    echo '<br>day difference (real date): <br>';
-	    var_dump((time() - strtotime(explode(' ', $res[1])[0])) / (60 * 60 * 24));
-	    echo '<br>rounded thing: <br>';
-	    var_dump(round(
-		(time() - strtotime(explode(' ', $res[1])[0])) / (60 * 60 * 24)
-		,-1
-	    ));
 	    $_POST['active_days'] = round(
 		(time() - strtotime(explode(' ', $res[1])[0])) / (60 * 60 * 24), 
 	    -1);
-
-	}
-		
     }
-
-    /* var_dump($_POST); */
 
     $query = "UPDATE services SET ";
 
@@ -80,11 +64,7 @@ if(isset($_POST['submit'])){
 
     $query .= "WHERE id = ${_GET['id']};";
 
-    echo "<br>$query<br>";
-
     $res = mysqli_query($dbconn, $query);
-
-    echo "<br>result: $res<br>";
 
     if($res){
 	$_SESSION['msg'] = 'Servicio actualizado con éxito';
@@ -94,7 +74,7 @@ if(isset($_POST['submit'])){
 	$_SESSION['msg_type'] = 'danger';
     }
 
-    /* header('Location: ..'); */
+    header('Location: ..');
 }
 
 ob_end_flush();

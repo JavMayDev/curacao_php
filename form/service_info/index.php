@@ -70,3 +70,10 @@
     </div>
 </div>
 
+<script>
+    var now = new Date(Date.now());
+    var day = ('0' + now.getDate()).slice(-2);
+    var month = ('0' + (now.getMonth() + 1)).slice(-2);
+    document.getElementsByName('service_date')[0].value =
+        now.getFullYear() + '-' + month + '-' + day;
+</script>
