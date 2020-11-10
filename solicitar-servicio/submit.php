@@ -53,7 +53,6 @@ if(isset($_POST['submit'])){
 
     $query .= ");";
 
-
     /* perform the query */
     $res = mysqli_query($dbconn,$query);
 

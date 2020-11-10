@@ -8,7 +8,7 @@ $mail = new PHPMailer\PHPMailer\PHPMailer(true);
 try {
 
     //Server settings
-    $mail->SMTPDebug = 0;
+    $mail->SMTPDebug = 2;
     $mail->isSMTP();                                    
     $mail->Host       = SMPT_HOST;
     $mail->SMTPAuth   = true;                          
@@ -19,14 +19,14 @@ try {
 
     /* add emails */
     $res = mysqli_query($dbconn, "SELECT email FROM emails");
-    foreach(mysqli_fetch_array($res) as $email)
-	$mail->addAddress($email);
+    foreach(mysqli_fetch_all($res) as $email)
+	$mail->addAddress($email[0]);
 
     $mail->setFrom('new_service@curacaoexportservices.com', 'Mailer');
 
     // Content
     $mail->isHTML(true);
-    $mail->Subject = 'Nuevo sevicio';
+    $mail->Subject = 'Curacao - Nuevo sevicio';
     $mail->Body = '<p>Se ha dado de alta un servicio</p>';
 
     $mail->send();
@@ -35,7 +35,5 @@ try {
     echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
     $_SESSION['invasive_alert'] = 'El servicio se registró correctamente pero no se pudo enviar el correo';
     $_SESSION['alert_type'] = 'warning';
-    /* $_SESSION['msg'] = 'El servicio se registró correctamente pero no se pudo enviar el correo'; */
-    /* $_SESSION['msg_type'] = 'warning'; */
 }
 ?>
