@@ -85,8 +85,8 @@
         },
         {
             "name": "myclabs/deep-copy",
-            "version": "1.10.1",
-            "version_normalized": "1.10.1.0",
+            "version": "1.7.0",
+            "version_normalized": "1.7.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/myclabs/DeepCopy.git",
