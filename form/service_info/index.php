@@ -20,7 +20,7 @@
     <div class="form-row">
 	<div class=" col-md-6 form-group">
 	    <label for="servicio">servicio</label>
-	    <select name="service_type" denyempty="true" class="form-control" id="service" >
+	    <select name="service_type" class="form-control" id="service" >
 
 		<option value disabled selected>-- tipo de servicio --</option>
 		<option value="servicio">servicio</option>

@@ -69,7 +69,7 @@ if(isset($_POST['submit'])){
 	$_SESSION['alert_type'] = 'danger';
     }
 
-    header("Location: ../buscar");
+    /* header("Location: ../buscar"); */
 }
 
 /* to avoid header redirect fails */
