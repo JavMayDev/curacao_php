@@ -61,7 +61,7 @@ if(isset($_POST['submit'])){
 	echo "isset res";
 	$_SESSION['invasive_alert'] = 'SU SERVICIO SE ENVIO CON EXITO';
 	$_SESSION['alert_type'] = 'success';
-	/* include(__DIR__.'/send_mail.php'); */
+	include(__DIR__.'/send_mail.php');
 
     } else {
 	echo "else res";
@@ -69,7 +69,7 @@ if(isset($_POST['submit'])){
 	$_SESSION['alert_type'] = 'danger';
     }
 
-    /* header("Location: ../buscar"); */
+    header("Location: ../buscar");
 }
 
 /* to avoid header redirect fails */
