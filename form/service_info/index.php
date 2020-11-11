@@ -22,9 +22,16 @@
 	    <label for="servicio">servicio</label>
 	    <select name="service_type" class="form-control" id="service" >
 
-		<option value disabled selected>-- tipo de servicio --</option>
+		<option value disabled selected hidden>-- tipo de servicio --</option>
 		<option value="servicio">servicio</option>
 		<option value="reclamo">reclamo</option>
+
+		<!-- ONLY AVAILABLE FOR 2 =< ACCESS LEVEL USERS -->
+		<?php if($_SESSION['access_level'] >= 2): ?>
+		<option value="anulacion parcial">anulacion parcial</option>
+		<option value="anulacion total">anulacion total</option>
+		<?php endif; ?>
+
 	    </select>
 	    </div>
 	<div class="col-md-6 form-group">

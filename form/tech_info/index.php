@@ -17,7 +17,7 @@
 	    <input name="associated" class="form-control" type="">
 	</div>
 	<div class="form-group col-md-6">
-	    <label for="">Revisado por (Supervisor)</label>
+	    <label for="">Responsable</label>
 	    <input name="supervisor" class="form-control" type="">
 	</div>
     </div>

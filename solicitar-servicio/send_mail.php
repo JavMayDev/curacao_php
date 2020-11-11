@@ -22,17 +22,16 @@ try {
     foreach(mysqli_fetch_all($res) as $email)
 	$mail->addAddress($email[0]);
 
-    $mail->setFrom('new_service@curacaoexportservices.com', 'Mailer');
+    $mail->setFrom('new_service@curacaoexportservices.com', 'Curacao');
 
     // Content
     $mail->isHTML(true);
-    $mail->Subject = 'Curacao - Nuevo sevicio';
+    $mail->Subject = "Nuevo servicio: ${_POST['order_num']}";
     $mail->Body = '<p>Se ha dado de alta un servicio</p>';
 
     $mail->send();
-    echo 'Message has been sent';
 } catch (Exception $e) {
-    echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
+    /* echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}"; */
     $_SESSION['invasive_alert'] = 'El servicio se registró correctamente pero no se pudo enviar el correo';
     $_SESSION['alert_type'] = 'warning';
 }
