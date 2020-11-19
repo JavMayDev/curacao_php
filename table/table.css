@@ -1,6 +1,10 @@
-td {
+.td_short {
     min-width: 150px;
 }
+.td_large {
+    min-width: 400px;
+}
+
 .dot {
     height: 20px;
     width: 20px;

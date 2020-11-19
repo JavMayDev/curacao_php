@@ -18,10 +18,14 @@ include(__DIR__.'/modal.php');
 	<thead>
 	    <tr>
 
-		<!-- <td>Días activo</td> -->
 		<?php foreach($fields as $field): ?>
-		<td
-		><?= $field['name']?></td>
+		<th class="<?php
+		    /* if large field expand td */
+		    if($field['key'] == 'notes' || $field['key'] == 'problem_description') 
+			echo 'td_large'; 
+		    else echo 'td_short'
+		?>" >
+		<?= $field['name']?></th>
 		<? endforeach; ?>
 	    </tr>
 	</thead>
@@ -50,8 +54,9 @@ include(__DIR__.'/modal.php');
 
 		?>
 
-		<!-- FOR ACTIVE FIELD -->
 		<td>
+
+		<!-- FOR ACTIVE FIELD -->
 		<?php if($field['key'] == 'active'): ?>
 		<span class="dot" style="background-color: <?php 
 		    if($row[$field['key']] == 1){ echo 'green'; }
