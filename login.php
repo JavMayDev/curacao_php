@@ -2,7 +2,6 @@
 /* to avoid header redirect fails */
 ob_start();
 
-
 include('db.php');
 include('session.php');
 
@@ -10,7 +9,7 @@ include('session.php');
 $email = $_POST['email'];
 $password = $_POST['password'];
 
-$query = "SELECT email, password, id, access_level FROM users WHERE email='$email'";
+$query = "SELECT email, password, id, access_level, country FROM users WHERE email='$email'";
 
 $result = mysqli_query($dbconn, $query);
 
@@ -27,7 +26,7 @@ if(password_verify($_POST['password'], $row['password'])){
     $_SESSION['user_id'] = $row['id'];
     $_SESSION['access_level'] = $row['access_level'];
     $_SESSION['logged'] = true;
-
+    $_SESSION['country'] = $row['country'];
 
     header('Location: buscar');
 } else {

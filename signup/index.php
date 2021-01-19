@@ -13,6 +13,7 @@ include(__DIR__.'/../includes/header.php');
 /* database */
 include(__DIR__.'/../db.php');
 
+/* INSERT USER */
 if(isset($_POST['submit'])){
 
     $query = "SELECT email FROM users WHERE email = '${_POST['email']}'";
@@ -23,21 +24,20 @@ if(isset($_POST['submit'])){
     } else {
 
 	$hashed_pass = password_hash($_POST['password'], PASSWORD_DEFAULT);
-	$query = "INSERT INTO users (name, email, password, access_level) values 
+	$query = "INSERT INTO users (name, email, password, access_level, country) values 
 
 	    (
 		'${_POST['name']}',
 		'${_POST['email']}',
 		'$hashed_pass',
-		'${_POST['access_level']}'
-	)
-	;";
+		'${_POST['access_level']}',
+		'${_POST['country']}'
+	    );";
 	$res = mysqli_query($dbconn, $query);
 	if($res) {
 	    $_SESSION['msg'] = 'Usuario registrado con éxito';
 	    $_SESSION['msg_type'] = 'success';
 	} else {
-
 	    $_SESSION['msg'] = 'No se pudo registrar el usuario';
 	    $_SESSION['msg_type'] = 'danger';
 	}
@@ -45,6 +45,7 @@ if(isset($_POST['submit'])){
     }
 }
 
+/* DELETE USER */
 if(isset($_POST['delete_user'])){
     echo "on delete";
     $query = "DELETE FROM users WHERE id='${_GET['id']}';";
@@ -59,7 +60,8 @@ if(isset($_POST['delete_user'])){
     }
 }
 
-$query = "SELECT id, name, access_level FROM users;";
+/* GET USERS */
+$query = "SELECT id, name, access_level, email, country FROM users;";
 $users_result = mysqli_query($dbconn, $query);
 
 ?>
@@ -70,7 +72,7 @@ $users_result = mysqli_query($dbconn, $query);
 <div class="card-body">
     <form action="" method="POST">
 	<div class="form-row">
-	    <div class="form-grou col-md-6">
+	    <div class="form-group col-md-6">
 		<label for="">Nombre</label>
 		<input name="name" class="form-control" type="text">
 	    </div>
@@ -84,12 +86,25 @@ $users_result = mysqli_query($dbconn, $query);
 		<label for="">contraseña</label>
 		<input name="password" class="form-control" type="password">
 	    </div>
-	    <div class="form-grou col-md-6">
+	    <div class="form-group col-md-6">
 		<label for="">Nivel de acceso</label>
 		<select name="access_level" id="" class="form-control" name="">
 		    <option selected="selected" value="1">Asesor</option>
 		    <option value="2">Supervisor</option>
 		    <option value="3">Administrador</option>
+		</select>
+	    </div>
+	</div>
+	<div class="form-row">
+	    <div class="form-group col-md-12">
+		<label for="">Pa&iacute;s</label>
+		<select name="country" class="form-control" id="" name="">
+		    <option value=""></option>
+		    <option value="El Salvador">El Salvador</option>
+		    <option value="Guatemala">Guatemala</option>
+		    <option value="Honduras">Honduras</option>
+		    <option value="Nicaragua">Nicaragua</option>
+		    <option value="México">México</option>
 		</select>
 	    </div>
 	</div>
@@ -109,6 +124,8 @@ $users_result = mysqli_query($dbconn, $query);
 	    ?>
 	    <li class="list-group-item d-flex justify-content-between">
 		<span ><?= $row['name']?></span>
+		<span ><?= $row['country']?></span>
+		<span ><?= $row['email']?></span>
 		<span ><?= $roles[$row['access_level']]?></span>
 		<form method="POST" action=".?id=<?= $row['id']?>">
 		    <input type="submit" value="Eliminar" name="delete_user" class="btn btn-danger">
