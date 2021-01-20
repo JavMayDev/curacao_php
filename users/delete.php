@@ -1,6 +1,5 @@
 <?php
 
-include('../includes/session_check.php');
 if(!user_logged(3)) {
     header('Location: ../index.php');
     exit();
