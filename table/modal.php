@@ -32,7 +32,6 @@
 
 
 <script>
-
 $('#exampleModal').on('show.bs.modal', function (event) {
     var triggerer = $(event.relatedTarget); // Button that triggered the modal
     var rowId = triggerer.data('row_id'); // Extract info from data-* attributes
@@ -45,5 +44,4 @@ $('#exampleModal').on('show.bs.modal', function (event) {
     modal.find('#view_pdf_button').attr('href','<?= BASE_URL?>'+'exportar/pdf_table/index.php?id='+rowId);
 
 })
-
 </script>

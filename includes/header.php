@@ -35,6 +35,9 @@ include_once(__DIR__.'/../env.php');
 		     <li class="nav-item">
 			 <a class="nav-link" href="<?= BASE_URL.'buscar'?>">Buscar</a>
 		     </li>
+		     <li class="nav-item">
+			 <a class="nav-link" href="<?= BASE_URL.'preferencias'?>">preferencias</a>
+		     </li>
 
 		     <!-- accessible for access_level >= 2 users -->
 		    <?php if(isset($_SESSION['access_level']) && $_SESSION['access_level'] >= 2): ?>
@@ -49,7 +52,7 @@ include_once(__DIR__.'/../env.php');
 		     <!-- accessible for access_level >= 3 users -->
 		    <?php if(isset($_SESSION['access_level']) && $_SESSION['access_level'] >= 3): ?>
 		     <li class="nav-item">
-			 <a class="nav-link" href="<?= BASE_URL.'signup/index.php'?>">Registrar usuario</a>
+			 <a class="nav-link" href="<?= BASE_URL.'users/index.php'?>">Usuarios</a>
 		     </li>
 		     <li class="nav-item">
 			 <a class="nav-link" href="<?= BASE_URL.'configuracion/index.php'?>">Configuración</a>
