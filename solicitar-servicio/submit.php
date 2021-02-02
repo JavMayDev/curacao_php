@@ -57,7 +57,6 @@ if(isset($_POST['submit'])){
     $res = mysqli_query($dbconn,$query);
 
     if($res){
-	echo "isset res";
 	$_SESSION['invasive_alert'] = 'SU SERVICIO SE ENVIO CON EXITO';
 	$_SESSION['alert_type'] = 'success';
 	include(__DIR__.'/send_mail.php');

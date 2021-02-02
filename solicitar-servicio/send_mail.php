@@ -17,10 +17,15 @@ try {
     /* $mail->SMTPSecure = 'tls'; */
     $mail->Port       = 587;
 
-    /* add emails */
+    /* add default emails */
     $res = mysqli_query($dbconn, "SELECT email FROM emails");
     foreach(mysqli_fetch_all($res) as $email)
 	$mail->addAddress($email[0]);
+
+    /* add email of country supervisor */
+    $res = mysqli_query($dbconn, "SELECT email FROM users WHERE access_level = 2 AND country = '${_POST['country']}';");
+    if($res)
+	$mail->addAddress(mysqli_fetch_row($res)[0]);
 
     $mail->setFrom('new_service@curacaoexportservices.com', 'Curacao');
 
@@ -31,7 +36,6 @@ try {
 
     $mail->send();
 } catch (Exception $e) {
-    /* echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}"; */
     $_SESSION['invasive_alert'] = 'El servicio se registró correctamente pero no se pudo enviar el correo';
     $_SESSION['alert_type'] = 'warning';
 }
