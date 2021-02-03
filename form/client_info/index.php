@@ -54,7 +54,7 @@
     <div class="form-row">
 
 	<div class="form-group col-md-4">
-	    <label for="">Teléfono local</label>
+	    <label for="">Teléfono de casa</label>
 	    <input denyempty="true" lockable="true" name="local_tel" class="form-control" type="tel">
 	</div>
 	<div class="form-group col-md-4">

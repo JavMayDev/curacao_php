@@ -12,11 +12,7 @@
 	</div>
     </div>
     <div class="form-row">
-	<div class="form-group col-md-6">
-	    <label for="">Servicio enviado por (Asociado)</label>
-	    <input name="associated" class="form-control" type="">
-	</div>
-	<div class="form-group col-md-6">
+	<div class="form-group col-md-12">
 	    <label for="">Responsable</label>
 	    <input name="supervisor" class="form-control" type="">
 	</div>

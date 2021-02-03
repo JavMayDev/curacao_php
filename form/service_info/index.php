@@ -53,11 +53,15 @@
 	</div>
     </div>
     <div class="form-row">
-	<div class="col-md-6 form-group">
+	<div class="col-md-4 form-group">
 	    <label for="">No. de orden</label>
 	    <input name="order_num" lockable="true" denyempty="true" class="form-control" type="">
 	</div>
-	<div class="col-md-6 form-group">
+	<div class="form-group col-md-4">
+	    <label for="">Servicio enviado por (Asociado)</label>
+	    <input name="associated" class="form-control" type="">
+	</div>
+	<div class="col-md-4 form-group">
 	    <label for="">Tienda donde se realizó la venta</label>
 	    <select name="sale_store" denyempty="true" lockable="true" id="" class="form-control" name="">
 		<option disabled hidden selected="selected"></option>
