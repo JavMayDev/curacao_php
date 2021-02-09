@@ -32,7 +32,7 @@ include(__DIR__.'/modal.php');
 	<tbody>
 	    <?php
 	    if(isset($result)):
-		while($row = mysqli_fetch_array($result)): 
+		while($row =mysqli_fetch_assoc($result) ): 
 	    ?>
 	    <tr 
 	   data-toggle="modal" data-target="#exampleModal" class="table_row"
@@ -68,6 +68,13 @@ include(__DIR__.'/modal.php');
 		    /* if empty from database, print today's date */
 		    echo date_diff(date_create($row['service_date']),
 		    date_create(date("Y-m-d")))->format("%a");
+
+		/* FOR MULTILINE FIELDS */
+		elseif($field['key'] == 'notes' || $field['key'] == 'problem_description'):
+		?>
+		<div style="height: 80px; overflow: scroll;"><?php echo $row[$field['key']] ?></div>
+		<?php
+		    
 
 		/* FOR ANY OTHER FIELD */
 		else: 

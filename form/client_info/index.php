@@ -42,13 +42,9 @@
 	    <label for="">Calle</label>
 	    <input denyempty="true" lockable="true" name="street" class="form-control" type="">
 	</div>
-	<div class="form-group col-md-2">
-	    <label for=""># Exterior</label>
+	<div class="form-group col-md-4">
+	    <label for=""># Casa</label>
 	    <input denyempty="true" lockable="true" name="exterior_num" class="form-control" type="number">
-	</div>
-	<div class="form-group col-md-2">
-	    <label for=""># Interior</label>
-	    <input lockable="true" name="interior_num" class="form-control" type="number">
 	</div>
     </div>
     <div class="form-row">
