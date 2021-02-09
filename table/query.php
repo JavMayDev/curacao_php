@@ -28,7 +28,7 @@ if(isset($_POST['filter_submit']) ) {
 if ($_SESSION['access_level'] == 2)
     $query .= " AND country = '${_SESSION['country']}'";
 
-$query .= " ORDER BY order_num DESC;";
+$query .= " ORDER BY order_num ASC;";
 
 $result = mysqli_query($dbconn, $query);
 if(!$result) echo "No hay servicios para mostrar";
