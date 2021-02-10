@@ -12,10 +12,9 @@ include(__DIR__.'/modal.php');
 
 <!-- this is the colse-tag of the .container one on the header -->
 </div>
-
-<div class="scrollable">
+<div id="table-scrollable">
     <table class='table table-striped'> 
-	<thead>
+	<thead id="table-head">
 	    <tr>
 
 		<?php foreach($fields as $field): ?>
@@ -88,8 +87,9 @@ include(__DIR__.'/modal.php');
 
 
     </table>
-
 </div>
 
 <!-- this is the open tag of the .container one in the footer -->
 <div>
+
+ <script src="<?php echo BASE_URL.'table/fixTableHead.js' ?>"></script>
