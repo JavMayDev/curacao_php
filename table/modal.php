@@ -39,7 +39,7 @@ $('#exampleModal').on('show.bs.modal', function (event) {
     var modal = $(this);
 
     modal.find('#edit_button').attr('href','<?= BASE_URL?>'+'editar/index.php?id='+rowId);
-    modal.find('#export_button').attr('href','<?= BASE_URL?>'+'exportar/index.php?id='+rowId);
+    modal.find('#export_button').attr('href','<?= BASE_URL?>'+'exportar/excel/index.php?id='+rowId);
     modal.find('#delete_button').attr('href','<?= BASE_URL?>'+'editar/delete.php?id='+rowId);
     modal.find('#view_pdf_button').attr('href','<?= BASE_URL?>'+'exportar/pdf_table/index.php?id='+rowId);
 
