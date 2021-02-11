@@ -59,10 +59,10 @@ if(isset($_POST['submit'])){
     if($res){
 	$_SESSION['invasive_alert'] = 'SU SERVICIO SE ENVIO CON EXITO';
 	$_SESSION['alert_type'] = 'success';
+	$insert_id = mysqli_insert_id($dbconn);
 	include(__DIR__.'/send_mail.php');
 
     } else {
-	echo "else res";
 	$_SESSION['invasive_alert'] = 'El servicio no se pudo registrar';
 	$_SESSION['alert_type'] = 'danger';
     }

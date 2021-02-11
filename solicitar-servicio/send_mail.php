@@ -23,9 +23,11 @@ try {
 	$mail->addAddress($email[0]);
 
     /* add email of country supervisor */
-    $res = mysqli_query($dbconn, "SELECT email FROM users WHERE access_level = 2 AND country = '${_POST['country']}';");
-    if($res)
-	$mail->addAddress(mysqli_fetch_row($res)[0]);
+    if(isset($_POST['country'])) {
+	$res = mysqli_query($dbconn, "SELECT email FROM users WHERE access_level = 2 AND country = '${_POST['country']}';");
+	if($res)
+	    $mail->addAddress(mysqli_fetch_row($res)[0]);
+    }
 
     $mail->setFrom('new_service@curacaoexportservices.com', 'Curacao');
 
@@ -34,7 +36,16 @@ try {
     $mail->Subject = "Nuevo servicio: ${_POST['order_num']}";
     $mail->Body = '<p>Se ha dado de alta un servicio</p>';
 
+    /* attach service data in pdf */
+    include(__DIR__.'/../exportar/pdf_table/make_pdf.php');
+    make_pdf($insert_id, true);
+    $pdf_file = __DIR__.'/../exportar/pdf_table/servicio_'.$_POST['order_num'].'.pdf';
+    $mail->addAttachment($pdf_file);
+
     $mail->send();
+
+    unlink($pdf_file);
+
 } catch (Exception $e) {
     $_SESSION['invasive_alert'] = 'El servicio se registró correctamente pero no se pudo enviar el correo';
     $_SESSION['alert_type'] = 'warning';
