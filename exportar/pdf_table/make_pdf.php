@@ -62,7 +62,6 @@ $product_info_table
     $mpdf->WriteHTML($document);
     $mpdf->setTitle($filename);
 
-    echo 'save on: '.__DIR__."/$filename.pdf";
     if($save_file)
 	$mpdf->Output(__DIR__."/$filename.pdf", 'F');
     else 
