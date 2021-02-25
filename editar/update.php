@@ -27,7 +27,6 @@ if(isset($_POST['submit'])){
 	    unset ($_POST[$field]);
     }
 
-
     /* set active value */
     if(isset($_POST['active']))
 	$_POST['active'] = 1;

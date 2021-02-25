@@ -1,8 +1,5 @@
 // this script fills the form fields with the row data
 
-console.log('testing script');
-console.log('countries: ', countries);
-
 var country = countries.find(function (c) {
     return c.country_name === row_data.country;
 });
@@ -27,11 +24,6 @@ Object.keys(row_data).map(function (key) {
 // checkbox
 var checkbox = document.getElementsByName('active')[0];
 checkbox.removeAttribute('value');
-
-console.log('checkbox on fill: ', checkbox);
-console.log( 'active on row data: ', row_data.active);
-console.log( 'type of active on row data: ', typeof row_data.active );
-
 checkbox.checked = row_data.active === '1';
 
 // dates
@@ -41,3 +33,16 @@ document.getElementsByName(
 document.getElementsByName(
     'delivery_date'
 )[0].value = row_data.delivery_date.split(' ')[0];
+
+// product image
+if (row_data.product_image_filename) {
+    // add image
+    var productImage = new Image();
+    productImage.style.maxWidth = '100%';
+    productImage.src =
+        location.origin + '/products_images/' + row_data.product_image_filename;
+    document.getElementById('product-image').appendChild(productImage);
+
+    // remove input
+    document.getElementById('product-image-input').remove();
+}

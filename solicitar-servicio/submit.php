@@ -13,6 +13,14 @@ include('../db.php');
 
 if(isset($_POST['submit'])){
 
+    /* image upload */
+    if(isset($_FILES['product_image'])) {
+	$filename = uniqid('product_image_'). '.' .pathinfo($_FILES['product_image']['name'], PATHINFO_EXTENSION);
+	$upload_path = realpath(__DIR__.'/../products_images')."/$filename";
+	if(move_uploaded_file($_FILES['product_image']['tmp_name'], $upload_path))
+	    $_POST['product_image_filename'] = $filename;
+    }
+
     unset($_POST['submit']);
     if($_POST['service_date'] == '') unset($_POST['service_date']);
 

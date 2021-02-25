@@ -3,6 +3,12 @@
 <!-- PRODUCTO Y PROBLEMA -->
 <div>
     <h2>Información del producto y problema</h2>
+    <div class="form-row" id="product-image">
+	<div class="form-group col-md-6">
+	    <label for="">Imagen del producto</label>
+	    <input type="file" name="product_image" id="product-image-input">
+	</div>
+    </div>
     <div class="form-row">
 	<div class="form-group col-md-4">
 	    <label for="">Articulo</label>
@@ -40,6 +46,6 @@
 	    <textarea denyempty="true" lockable="true" name="problem_description" class="form-control" id="" name="" cols="30" rows="5"></textarea>
 	</div>
     </div>
-    
+
 </div>
 

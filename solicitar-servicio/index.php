@@ -27,7 +27,7 @@ include(__DIR__.'/../includes/header.php');
 
 <h1 class="text-center text-primary">Solicitar servicio</h1>
 
-<form action="./submit.php" method="POST" onsubmit="return validateForm()" >
+<form action="./submit.php" method="POST" onsubmit="return validateForm()" enctype="multipart/form-data">
 
 <?php 
     /* include each part of the form */
