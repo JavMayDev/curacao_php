@@ -47,7 +47,7 @@ try {
     unlink($pdf_file);
 
 } catch (Exception $e) {
-    $_SESSION['invasive_alert'] = 'El servicio se registró correctamente pero no se pudo enviar el correo';
+    $_SESSION['invasive_alert'] = 'El servicio se registró correctamente pero no se pudo enviar el correo <br>'.$e;
     $_SESSION['alert_type'] = 'warning';
 }
 ?>
