@@ -41,9 +41,8 @@ if(isset($_POST['submit'])){
 	/* var_dump($res); */
 	if($res[0] == '1')
 	    /* if was active, capture active days */
-	    $_POST['active_days'] = round(
-		(time() - strtotime(explode(' ', $res[1])[0])) / (60 * 60 * 24), 
-	    -1);
+	    $_POST['active_days'] = date_diff(date_create($res[1]),
+		    date_create(date("Y-m-d")))->format("%a");
     }
 
     /* set last update date */
