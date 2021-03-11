@@ -63,8 +63,8 @@ include(__DIR__.'/modal.php');
 			?>;"></span>
 
 		<!-- FOR ACTIVE DAYS FIELD -->
-		<?php elseif($field['key'] == 'active_days' && !$row[$field['key']]): 
-		    /* if empty from database, print today's date */
+		<?php elseif($field['key'] == 'active_days' && $row['active'] == 1): 
+		    /* if active, print diference of service date and now */
 		    echo date_diff(date_create($row['service_date']),
 		    date_create(date("Y-m-d")))->format("%a");
 
