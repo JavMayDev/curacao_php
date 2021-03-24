@@ -24,9 +24,11 @@ $row = mysqli_fetch_assoc(mysqli_query($dbconn, "SELECT * FROM services WHERE id
 /* format carraige return (for multiline strings) to be supported by json parser in the browser */
 $row['problem_description'] = (str_replace("\r\n", "\\r\\n", $row['problem_description']));
 $row['notes'] = (str_replace("\r\n", "\\r\\n", $row['notes']));
-/* escape quotes */
-$row['problem_description'] = str_replace('"', '\"', $row['problem_description']);
-$row['notes'] = str_replace('"', '\"', $row['notes']);
+
+/* escape quotes to all fields */
+foreach(array_keys($row) as $row_key) {
+    $row[$row_key] = str_replace('"', '\"', $row[$row_key]);
+}
 
 $json_encoded_row = json_encode($row );
 
