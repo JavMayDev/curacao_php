@@ -10,6 +10,10 @@ include(__DIR__.'/modal.php');
 
 <link rel="stylesheet" href="<?= BASE_URL?>/table/table.css">
 
+<a href="<?php echo BASE_URL.'exportar/whole_export.php' ?>">
+    <button class="btn btn-secondary">Exportar todo</button>
+</a>
+
 <!-- this is the colse-tag of the .container one on the header -->
 </div>
 <div id="table-scrollable">
